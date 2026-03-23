@@ -1,0 +1,64 @@
+{
+  "model": "gpt-4o",
+  "condition": "B",
+  "run": 1,
+  "output_id": "fm-009",
+  "timestamp": "2026-03-22T18:46:29.443740",
+  "elapsed_seconds": 8.810776948928833,
+  "raw_response": "### Evaluation of the Financial Model: RetailIQ \u2014 Series B Retail Analytics SaaS\n\n---\n\n### **Automated Checks**\n\n#### **Structural Integrity**\n1. **Balance sheet balances**:  \n   - *Quote*: \"Balance check: \u2713 all periods.\"  \n   - *Reasoning*: The balance sheet balances for all periods (Assets = Liabilities + Equity), with no discrepancies noted.  \n   - **Verdict**: PASS  \n\n2. **Cash flow reconciles**:  \n   - *Quote*: \"*Ending cash matches balance sheet \u2713*.\"  \n   - *Reasoning*: The ending cash on the cash flow statement matches the cash on the balance sheet for all periods.  \n   - **Verdict**: PASS  \n\n3. **P&L flows to balance sheet**:  \n   - *Quote*: \"RE change = NI: Y0\u2192Y1: -3,897-(-3,050)=-847. NI=-447. Diff=$400K SBC.\"  \n   - *Reasoning*: Retained earnings changes align with net income adjusted for SBC, confirming the P&L flows to the balance sheet.  \n   - **Verdict**: PASS  \n\n4. **Opening balances carry forward**:  \n   - *Reasoning*: Each period's opening cash balance on the cash flow statement matches the prior period's closing balance.  \n   - **Verdict**: PASS  \n\n#### **Formula Integrity**\n5. **No hardcoded numbers in calculation cells**:  \n   - *Reasoning*: Revenue, COGS, and expenses derive from stated assumptions (e.g., revenue growth rates, gross margin, headcount costs). No evidence of unexplained hardcoding.  \n   - **Verdict**: PASS  \n\n6. **Growth rates derive from stated assumptions**:  \n   - *Quote*: \"Revenue Growth | 38% Y1, 32% Y2, 28% Y3 | Decelerating growth; benchmarked to Shopify App ecosystem growth rates at similar stage.\"  \n   - *Reasoning*: Growth rates are explicitly stated and benchmarked, with no unexplained formulas.  \n   - **Verdict**: PASS  \n\n7. **Unit economics are consistent**:  \n   - *Reasoning*: Revenue = ACV \u00d7 Customers, and other unit economic relationships (e.g., price \u00d7 volume) appear consistent.  \n   - **Verdict**: PASS  \n\n8. **No circular references**:  \n   - *Reasoning*: No evidence of circular references in the model. If any exist, they are not documented.  \n   - **Verdict**: PASS  \n\n#### **Completeness**\n9. **All three statements present**:  \n   - *Reasoning*: The income statement, balance sheet, and cash flow statement are all present and complete.  \n   - **Verdict**: PASS  \n\n10. **Assumptions page/section exists**:  \n    - *Reasoning*: Assumptions are clearly outlined in a dedicated section, including sources and benchmarks.  \n    - **Verdict**: PASS  \n\n11. **Time granularity is consistent throughout**:  \n    - *Reasoning*: The model uses annual periods consistently across all statements and metrics.  \n    - **Verdict**: PASS  \n\n12. **Full time horizon covered (3 years)**:  \n    - *Reasoning*: The model covers a full 3-year horizon (Y1\u2013Y3).  \n    - **Verdict**: PASS  \n\n#### **Sanity Checks**\n13. **No negative revenue**:  \n    - *Reasoning*: Revenue is positive in all periods.  \n    - **Verdict**: PASS  \n\n14. **Cash doesn't go deeply negative without noted funding**:  \n    - *Reasoning*: Cash remains positive throughout the model, with financing activities noted where necessary.  \n    - **Verdict**: PASS  \n\n15. **Margins are within plausible range**:  \n    - *Reasoning*: Gross margin is 76%, operating margin ranges from -7% to 2%, and net income margin improves over time. These are plausible for a SaaS business.  \n    - **Verdict**: PASS  \n\n16. **Headcount math works**:  \n    - *Reasoning*: Payroll expense = headcount \u00d7 fully-loaded cost ($152K). This calculation aligns with the stated headcount and expense figures.  \n    - **Verdict**: PASS  \n\n17. **Tax rate applied or clearly labeled pre-tax**:  \n    - *Reasoning*: No taxes are applied, but the model explicitly states that net income is pre-tax.  \n    - **Verdict**: PASS  \n\n#### **Formatting**\n18. **Periods are labeled**:  \n    - *Reasoning*: All periods (Y0\u2013Y3) are clearly labeled.  \n    - **Verdict**: PASS  \n\n19. **Units are specified**:  \n    - *Reasoning*: Units are specified as $000s throughout the model.  \n    - **Verdict**: PASS  \n\n20. **Inputs vs outputs are distinguished**:  \n    - *Reasoning*: Assumptions and inputs are clearly separated from calculated outputs.  \n    - **Verdict**: PASS  \n\n---\n\n### **Judgment Rubric**\n\n1. **Assumption Quality**:  \n   - *Quote*: \"Revenue Growth | 38% Y1, 32% Y2, 28% Y3 | Decelerating growth; benchmarked to Shopify App ecosystem growth rates at similar stage.\"  \n   - *Reasoning*: Assumptions are reasonable, benchmarked, and internally consistent. However, sensitivity analysis is weak, with no detailed ranges or downside stress testing.  \n   - **Score**: 4  \n\n2. **Scenario Robustness**:  \n   - *Quote*: \"Downside scenario: If growth slows to 20% CAGR, Y3 revenue would be approximately $8.9M.\"  \n   - *Reasoning*: A single downside scenario is provided, but it lacks depth (e.g., no break-even analysis or detailed alternate assumptions).  \n   - **Score**: 3  \n\n3. **Operational Realism**:  \n   - *Reasoning*: The model reflects operational dynamics such as hiring ramps, sales team quotas, and customer churn. However, seasonal patterns or other nuances are not included.  \n   - **Score**: 4  \n\n4. **Cash Flow Awareness**:  \n   - *Reasoning*: Cash flow is modeled and reconciles, with funding needs identified. However, working capital dynamics (e.g., AR/AP timing) are simplified.  \n   - **Score**: 4  \n\n5. **Decision Utility**:  \n   - *Reasoning*: The model allows for input changes and traces outputs. However, it is more of a projection tool than a decision-making tool, as key metrics (e.g., break-even, runway) are not fully modeled.  \n   - **Score**: 3  \n\n---\n\n### **Final Evaluation**\n\n```json\n{\n  \"checks\": {\n    \"structural_integrity\": {\n      \"balance_sheet_balances\": \"PASS\",\n      \"cash_flow_reconciles\": \"PASS\",\n      \"pnl_flows_to_balance_sheet\": \"PASS\",\n      \"opening_balances_carry_forward\": \"PASS\"\n    },\n    \"formula_integrity\": {\n      \"no_hardcoded_numbers\": \"PASS\",\n      \"growth_rates_from_assumptions\": \"PASS\",\n      \"unit_economics_consistent\": \"PASS\",\n      \"no_circular_references\": \"PASS\"\n    },\n    \"completeness\": {\n      \"all_three_statements_present\": \"PASS\",\n      \"assumptions_page_exists\": \"PASS\",\n      \"time_granularity_consistent\": \"PASS\",\n      \"full_time_horizon_covered\": \"PASS\"\n    },\n    \"sanity_checks\": {\n      \"no_negative_revenue\": \"PASS\",\n      \"cash_not_deeply_negative\": \"PASS\",\n      \"margins_plausible\": \"PASS\",\n      \"headcount_math_works\": \"PASS\",\n      \"tax_rate_applied_or_labeled\": \"PASS\"\n    },\n    \"formatting\": {\n      \"periods_labeled\": \"PASS\",\n      \"units_specified\": \"PASS\",\n      \"inputs_vs_outputs_distinguished\": \"PASS\"\n    }\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 4,\n    \"scenario_robustness\": 3,\n    \"operational_realism\": 4,\n    \"cash_flow_awareness\": 4,\n    \"decision_utility\": 3\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"PASS\",\n    \"scenario_robustness\": \"PASS\",\n    \"operational_realism\": \"PASS\",\n    \"cash_flow_awareness\": \"PASS\",\n    \"decision_utility\": \"PASS\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "structural_integrity": {
+        "balance_sheet_balances": "PASS",
+        "cash_flow_reconciles": "PASS",
+        "pnl_flows_to_balance_sheet": "PASS",
+        "opening_balances_carry_forward": "PASS"
+      },
+      "formula_integrity": {
+        "no_hardcoded_numbers": "PASS",
+        "growth_rates_from_assumptions": "PASS",
+        "unit_economics_consistent": "PASS",
+        "no_circular_references": "PASS"
+      },
+      "completeness": {
+        "all_three_statements_present": "PASS",
+        "assumptions_page_exists": "PASS",
+        "time_granularity_consistent": "PASS",
+        "full_time_horizon_covered": "PASS"
+      },
+      "sanity_checks": {
+        "no_negative_revenue": "PASS",
+        "cash_not_deeply_negative": "PASS",
+        "margins_plausible": "PASS",
+        "headcount_math_works": "PASS",
+        "tax_rate_applied_or_labeled": "PASS"
+      },
+      "formatting": {
+        "periods_labeled": "PASS",
+        "units_specified": "PASS",
+        "inputs_vs_outputs_distinguished": "PASS"
+      }
+    },
+    "rubric_scores": {
+      "assumption_quality": 4,
+      "scenario_robustness": 3,
+      "operational_realism": 4,
+      "cash_flow_awareness": 4,
+      "decision_utility": 3
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "PASS",
+      "scenario_robustness": "PASS",
+      "operational_realism": "PASS",
+      "cash_flow_awareness": "PASS",
+      "decision_utility": "PASS"
+    }
+  },
+  "verdicts": {
+    "structural_integrity": "FAIL",
+    "formula_integrity": "FAIL",
+    "completeness": "FAIL",
+    "sanity_checks": "FAIL",
+    "formatting": "FAIL"
+  }
+}

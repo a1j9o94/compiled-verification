@@ -1,0 +1,147 @@
+{
+  "model": "claude-sonnet",
+  "condition": "C",
+  "run": 3,
+  "output_id": "fm-001",
+  "timestamp": "2026-03-22T19:01:06.506907",
+  "elapsed_seconds": 19.08539867401123,
+  "raw_response": "```json\n{\n  \"checks\": {\n    \"check_balance_sheet\": {\"verdict\": \"PASS\", \"evidence\": \"Balance check: Assets = L + E in all periods \u2713\"},\n    \"check_cash_flow_reconciles\": {\"verdict\": \"PASS\", \"evidence\": \"Ending cash matches balance sheet cash in all periods \u2713\"},\n    \"check_pnl_flows_to_bs\": {\"verdict\": \"PASS\", \"evidence\": \"Net income flows correctly to retained earnings: Y1 (-476), Y2 (-76), Y3 (+313)\"},\n    \"check_opening_balances\": {\"verdict\": \"PASS\", \"evidence\": \"Beginning cash Y1 (8,200) = Y0 ending cash, pattern continues\"},\n    \"check_no_hardcoded\": {\"verdict\": \"PASS\", \"evidence\": \"Revenue derives from ARR assumptions, expenses from % of revenue assumptions\"},\n    \"check_growth_from_assumptions\": {\"verdict\": \"PASS\", \"evidence\": \"35% CAGR stated and revenue grows 4.2M \u2192 5.67M \u2192 7.66M \u2192 10.33M consistently\"},\n    \"check_unit_economics_consistent\": {\"verdict\": \"PASS\", \"evidence\": \"LTV/CAC progression 3.2x \u2192 3.8x \u2192 4.5x aligns with improving CAC payback 14\u219212\u219211 months\"},\n    \"check_no_circular_refs\": {\"verdict\": \"PASS\", \"evidence\": \"No circular references documented or apparent in structure\"},\n    \"check_three_statements\": {\"verdict\": \"PASS\", \"evidence\": \"Income Statement, Balance Sheet, and Cash Flow Statement all present\"},\n    \"check_assumptions_page\": {\"verdict\": \"PASS\", \"evidence\": \"Comprehensive assumptions section with sources and benchmarks\"},\n    \"check_time_granularity\": {\"verdict\": \"PASS\", \"evidence\": \"Consistent annual periods Y1, Y2, Y3 throughout all statements\"},\n    \"check_full_horizon\": {\"verdict\": \"PASS\", \"evidence\": \"Full 3-year projection provided across all statements\"},\n    \"check_no_negative_revenue\": {\"verdict\": \"PASS\", \"evidence\": \"All revenue figures positive: 5,953 \u2192 8,037 \u2192 10,851\"},\n    \"check_cash_not_negative\": {\"verdict\": \"PASS\", \"evidence\": \"Cash remains positive: 7,844 \u2192 7,438 \u2192 8,101, with 36+ month runway\"},\n    \"check_margins_plausible\": {\"verdict\": \"PASS\", \"evidence\": \"Gross margin 78-80% reasonable for SaaS, operating margin -10% \u2192 2% typical for growth stage\"},\n    \"check_headcount_math\": {\"verdict\": \"PASS\", \"evidence\": \"48\u219295 headcount at $165K average = reasonable expense levels vs stated payroll\"},\n    \"check_tax_rate\": {\"verdict\": \"PASS\", \"evidence\": \"0% tax rate clearly explained as NOL carryforward\"},\n    \"check_periods_labeled\": {\"verdict\": \"PASS\", \"evidence\": \"Clear Y0, Y1, Y2, Y3 labeling throughout\"},\n    \"check_units_specified\": {\"verdict\": \"PASS\", \"evidence\": \"Units clearly marked as ($000s) in all financial statements\"},\n    \"check_inputs_vs_outputs\": {\"verdict\": \"PASS\", \"evidence\": \"Assumptions section clearly separated from calculated financial statements\"}\n  },\n  \"rubric\": {\n    \"rubric_assumption_quality\": {\"score\": 5, \"verdict\": \"PASS\", \"evidence\": \"Assumptions sourced from Bessemer Cloud Index, KeyBanc surveys, actual comparables like Datadog. Internally consistent with sensitivity ranges.\"},\n    \"rubric_scenario_robustness\": {\"score\": 4, \"verdict\": \"PASS\", \"evidence\": \"Comprehensive sensitivity analysis with 5 growth scenarios, key metric sensitivities, break-even analysis. Missing only downside stress test.\"},\n    \"rubric_operational_realism\": {\"score\": 5, \"verdict\": \"PASS\", \"evidence\": \"Detailed hiring ramps by department, 6-month sales rep ramp, 45-day recruiting cycles, quota-carrying rep distinctions modeled.\"},\n    \"rubric_cash_flow_awareness\": {\"score\": 5, \"verdict\": \"PASS\", \"evidence\": \"Cash flow reconciles perfectly, working capital modeled, burn multiple tracked, runway calculated, funding needs clear.\"},\n    \"rubric_decision_utility\": {\"score\": 4, \"verdict\": \"PASS\", \"evidence\": \"Model enables scenario analysis, key metrics tracked, sensitivities quantified. Could be enhanced with more operational levers like pricing changes.\"}\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "check_balance_sheet": {
+        "verdict": "PASS",
+        "evidence": "Balance check: Assets = L + E in all periods \u2713"
+      },
+      "check_cash_flow_reconciles": {
+        "verdict": "PASS",
+        "evidence": "Ending cash matches balance sheet cash in all periods \u2713"
+      },
+      "check_pnl_flows_to_bs": {
+        "verdict": "PASS",
+        "evidence": "Net income flows correctly to retained earnings: Y1 (-476), Y2 (-76), Y3 (+313)"
+      },
+      "check_opening_balances": {
+        "verdict": "PASS",
+        "evidence": "Beginning cash Y1 (8,200) = Y0 ending cash, pattern continues"
+      },
+      "check_no_hardcoded": {
+        "verdict": "PASS",
+        "evidence": "Revenue derives from ARR assumptions, expenses from % of revenue assumptions"
+      },
+      "check_growth_from_assumptions": {
+        "verdict": "PASS",
+        "evidence": "35% CAGR stated and revenue grows 4.2M \u2192 5.67M \u2192 7.66M \u2192 10.33M consistently"
+      },
+      "check_unit_economics_consistent": {
+        "verdict": "PASS",
+        "evidence": "LTV/CAC progression 3.2x \u2192 3.8x \u2192 4.5x aligns with improving CAC payback 14\u219212\u219211 months"
+      },
+      "check_no_circular_refs": {
+        "verdict": "PASS",
+        "evidence": "No circular references documented or apparent in structure"
+      },
+      "check_three_statements": {
+        "verdict": "PASS",
+        "evidence": "Income Statement, Balance Sheet, and Cash Flow Statement all present"
+      },
+      "check_assumptions_page": {
+        "verdict": "PASS",
+        "evidence": "Comprehensive assumptions section with sources and benchmarks"
+      },
+      "check_time_granularity": {
+        "verdict": "PASS",
+        "evidence": "Consistent annual periods Y1, Y2, Y3 throughout all statements"
+      },
+      "check_full_horizon": {
+        "verdict": "PASS",
+        "evidence": "Full 3-year projection provided across all statements"
+      },
+      "check_no_negative_revenue": {
+        "verdict": "PASS",
+        "evidence": "All revenue figures positive: 5,953 \u2192 8,037 \u2192 10,851"
+      },
+      "check_cash_not_negative": {
+        "verdict": "PASS",
+        "evidence": "Cash remains positive: 7,844 \u2192 7,438 \u2192 8,101, with 36+ month runway"
+      },
+      "check_margins_plausible": {
+        "verdict": "PASS",
+        "evidence": "Gross margin 78-80% reasonable for SaaS, operating margin -10% \u2192 2% typical for growth stage"
+      },
+      "check_headcount_math": {
+        "verdict": "PASS",
+        "evidence": "48\u219295 headcount at $165K average = reasonable expense levels vs stated payroll"
+      },
+      "check_tax_rate": {
+        "verdict": "PASS",
+        "evidence": "0% tax rate clearly explained as NOL carryforward"
+      },
+      "check_periods_labeled": {
+        "verdict": "PASS",
+        "evidence": "Clear Y0, Y1, Y2, Y3 labeling throughout"
+      },
+      "check_units_specified": {
+        "verdict": "PASS",
+        "evidence": "Units clearly marked as ($000s) in all financial statements"
+      },
+      "check_inputs_vs_outputs": {
+        "verdict": "PASS",
+        "evidence": "Assumptions section clearly separated from calculated financial statements"
+      }
+    },
+    "rubric": {
+      "rubric_assumption_quality": {
+        "score": 5,
+        "verdict": "PASS",
+        "evidence": "Assumptions sourced from Bessemer Cloud Index, KeyBanc surveys, actual comparables like Datadog. Internally consistent with sensitivity ranges."
+      },
+      "rubric_scenario_robustness": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Comprehensive sensitivity analysis with 5 growth scenarios, key metric sensitivities, break-even analysis. Missing only downside stress test."
+      },
+      "rubric_operational_realism": {
+        "score": 5,
+        "verdict": "PASS",
+        "evidence": "Detailed hiring ramps by department, 6-month sales rep ramp, 45-day recruiting cycles, quota-carrying rep distinctions modeled."
+      },
+      "rubric_cash_flow_awareness": {
+        "score": 5,
+        "verdict": "PASS",
+        "evidence": "Cash flow reconciles perfectly, working capital modeled, burn multiple tracked, runway calculated, funding needs clear."
+      },
+      "rubric_decision_utility": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Model enables scenario analysis, key metrics tracked, sensitivities quantified. Could be enhanced with more operational levers like pricing changes."
+      }
+    }
+  },
+  "verdicts": {
+    "check_balance_sheet": "PASS",
+    "check_cash_flow_reconciles": "PASS",
+    "check_pnl_flows_to_bs": "PASS",
+    "check_opening_balances": "PASS",
+    "check_no_hardcoded": "PASS",
+    "check_growth_from_assumptions": "PASS",
+    "check_unit_economics_consistent": "PASS",
+    "check_no_circular_refs": "PASS",
+    "check_three_statements": "PASS",
+    "check_assumptions_page": "PASS",
+    "check_time_granularity": "PASS",
+    "check_full_horizon": "PASS",
+    "check_no_negative_revenue": "PASS",
+    "check_cash_not_negative": "PASS",
+    "check_margins_plausible": "PASS",
+    "check_headcount_math": "PASS",
+    "check_tax_rate": "PASS",
+    "check_periods_labeled": "PASS",
+    "check_units_specified": "PASS",
+    "check_inputs_vs_outputs": "PASS",
+    "rubric_assumption_quality": "PASS",
+    "rubric_scenario_robustness": "PASS",
+    "rubric_operational_realism": "PASS",
+    "rubric_cash_flow_awareness": "PASS",
+    "rubric_decision_utility": "PASS"
+  }
+}

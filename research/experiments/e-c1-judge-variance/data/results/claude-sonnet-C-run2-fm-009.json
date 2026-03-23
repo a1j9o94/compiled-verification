@@ -1,0 +1,147 @@
+{
+  "model": "claude-sonnet",
+  "condition": "C",
+  "run": 2,
+  "output_id": "fm-009",
+  "timestamp": "2026-03-22T19:08:23.478099",
+  "elapsed_seconds": 19.973299980163574,
+  "raw_response": "```json\n{\n  \"checks\": {\n    \"check_balance_sheet\": {\"verdict\": \"PASS\", \"evidence\": \"Balance check: \u2713 all periods - Assets = Liabilities + Equity\"},\n    \"check_cash_flow_reconciles\": {\"verdict\": \"PASS\", \"evidence\": \"Ending cash matches balance sheet \u2713 - CFS ending cash equals BS cash each period\"},\n    \"check_pnl_flows_to_bs\": {\"verdict\": \"PASS\", \"evidence\": \"RE change = NI: Y0\u2192Y1: -3,897-(-3,050)=-847. NI=-447. Diff=$400K SBC - properly reconciled\"},\n    \"check_opening_balances\": {\"verdict\": \"PASS\", \"evidence\": \"Beginning Cash Y1: 7,500 matches Y0 ending cash, pattern continues\"},\n    \"check_no_hardcoded\": {\"verdict\": \"FAIL\", \"evidence\": \"Cannot verify formulas - only see final numbers, but revenue growth rates appear to follow stated assumptions\"},\n    \"check_growth_from_assumptions\": {\"verdict\": \"PASS\", \"evidence\": \"Revenue grows 38% Y1 (7,176 vs 5,100), 32% Y2, 28% Y3 matching stated assumptions\"},\n    \"check_unit_economics_consistent\": {\"verdict\": \"PASS\", \"evidence\": \"252 customers \u00d7 $36K ACV \u2248 $9.1M vs $11.7M ARR - reasonable given expansion and ACV growth\"},\n    \"check_no_circular_refs\": {\"verdict\": \"PASS\", \"evidence\": \"No circular references apparent in the model structure\"},\n    \"check_three_statements\": {\"verdict\": \"PASS\", \"evidence\": \"Income Statement, Balance Sheet, and Cash Flow Statement all present\"},\n    \"check_assumptions_page\": {\"verdict\": \"PASS\", \"evidence\": \"Comprehensive assumptions section with growth rates, headcount, costs, and key metrics\"},\n    \"check_time_granularity\": {\"verdict\": \"PASS\", \"evidence\": \"Consistent annual periods (Y1, Y2, Y3) throughout all statements\"},\n    \"check_full_horizon\": {\"verdict\": \"PASS\", \"evidence\": \"Full 3-year horizon covered across all statements\"},\n    \"check_no_negative_revenue\": {\"verdict\": \"PASS\", \"evidence\": \"All revenue figures positive: Y1: $7,176K, Y2: $9,319K, Y3: $11,726K\"},\n    \"check_cash_not_negative\": {\"verdict\": \"PASS\", \"evidence\": \"Cash remains positive: Y1: $6,848K, Y2: $6,421K, Y3: $6,796K\"},\n    \"check_margins_plausible\": {\"verdict\": \"PASS\", \"evidence\": \"Gross margin 76% consistent with SaaS, operating margins -7% to +2% reasonable for growth stage\"},\n    \"check_headcount_math\": {\"verdict\": \"PASS\", \"evidence\": \"93 employees \u00d7 $152K avg cost = $14.1M vs ~$8.7M OpEx - reasonable given mix of costs\"},\n    \"check_tax_rate\": {\"verdict\": \"PASS\", \"evidence\": \"Tax = 0 clearly shown, appropriate for loss-making startup\"},\n    \"check_periods_labeled\": {\"verdict\": \"PASS\", \"evidence\": \"Clear Y0, Y1, Y2, Y3 labeling throughout\"},\n    \"check_units_specified\": {\"verdict\": \"PASS\", \"evidence\": \"Units clearly specified as ($000s) in financial statements\"},\n    \"check_inputs_vs_outputs\": {\"verdict\": \"PASS\", \"evidence\": \"Clear distinction between assumption inputs and calculated outputs in presentation\"}\n  },\n  \"rubric\": {\n    \"rubric_assumption_quality\": {\"score\": 4, \"verdict\": \"PASS\", \"evidence\": \"Well-sourced assumptions with benchmarks (Shopify ecosystem, Gartner market data), internally consistent growth deceleration, specific operational metrics\"},\n    \"rubric_scenario_robustness\": {\"score\": 2, \"verdict\": \"FAIL\", \"evidence\": \"Weak sensitivity analysis - only mentions 20% CAGR downside briefly, dismisses scenarios below 25% growth, lacks proper scenario modeling\"},\n    \"rubric_operational_realism\": {\"score\": 4, \"verdict\": \"PASS\", \"evidence\": \"Strong operational details: sales rep ramp periods, quota carrying capacity, customer segmentation by ACV, realistic hiring plans\"},\n    \"rubric_cash_flow_awareness\": {\"score\": 4, \"verdict\": \"PASS\", \"evidence\": \"Detailed cash flow modeling with working capital changes, burn multiple tracking, runway analysis, funding needs implicit\"},\n    \"rubric_decision_utility\": {\"score\": 3, \"verdict\": \"PASS\", \"evidence\": \"Good key metrics dashboard, traceable assumptions to outcomes, but limited scenario analysis reduces decision-making utility\"}\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "check_balance_sheet": {
+        "verdict": "PASS",
+        "evidence": "Balance check: \u2713 all periods - Assets = Liabilities + Equity"
+      },
+      "check_cash_flow_reconciles": {
+        "verdict": "PASS",
+        "evidence": "Ending cash matches balance sheet \u2713 - CFS ending cash equals BS cash each period"
+      },
+      "check_pnl_flows_to_bs": {
+        "verdict": "PASS",
+        "evidence": "RE change = NI: Y0\u2192Y1: -3,897-(-3,050)=-847. NI=-447. Diff=$400K SBC - properly reconciled"
+      },
+      "check_opening_balances": {
+        "verdict": "PASS",
+        "evidence": "Beginning Cash Y1: 7,500 matches Y0 ending cash, pattern continues"
+      },
+      "check_no_hardcoded": {
+        "verdict": "FAIL",
+        "evidence": "Cannot verify formulas - only see final numbers, but revenue growth rates appear to follow stated assumptions"
+      },
+      "check_growth_from_assumptions": {
+        "verdict": "PASS",
+        "evidence": "Revenue grows 38% Y1 (7,176 vs 5,100), 32% Y2, 28% Y3 matching stated assumptions"
+      },
+      "check_unit_economics_consistent": {
+        "verdict": "PASS",
+        "evidence": "252 customers \u00d7 $36K ACV \u2248 $9.1M vs $11.7M ARR - reasonable given expansion and ACV growth"
+      },
+      "check_no_circular_refs": {
+        "verdict": "PASS",
+        "evidence": "No circular references apparent in the model structure"
+      },
+      "check_three_statements": {
+        "verdict": "PASS",
+        "evidence": "Income Statement, Balance Sheet, and Cash Flow Statement all present"
+      },
+      "check_assumptions_page": {
+        "verdict": "PASS",
+        "evidence": "Comprehensive assumptions section with growth rates, headcount, costs, and key metrics"
+      },
+      "check_time_granularity": {
+        "verdict": "PASS",
+        "evidence": "Consistent annual periods (Y1, Y2, Y3) throughout all statements"
+      },
+      "check_full_horizon": {
+        "verdict": "PASS",
+        "evidence": "Full 3-year horizon covered across all statements"
+      },
+      "check_no_negative_revenue": {
+        "verdict": "PASS",
+        "evidence": "All revenue figures positive: Y1: $7,176K, Y2: $9,319K, Y3: $11,726K"
+      },
+      "check_cash_not_negative": {
+        "verdict": "PASS",
+        "evidence": "Cash remains positive: Y1: $6,848K, Y2: $6,421K, Y3: $6,796K"
+      },
+      "check_margins_plausible": {
+        "verdict": "PASS",
+        "evidence": "Gross margin 76% consistent with SaaS, operating margins -7% to +2% reasonable for growth stage"
+      },
+      "check_headcount_math": {
+        "verdict": "PASS",
+        "evidence": "93 employees \u00d7 $152K avg cost = $14.1M vs ~$8.7M OpEx - reasonable given mix of costs"
+      },
+      "check_tax_rate": {
+        "verdict": "PASS",
+        "evidence": "Tax = 0 clearly shown, appropriate for loss-making startup"
+      },
+      "check_periods_labeled": {
+        "verdict": "PASS",
+        "evidence": "Clear Y0, Y1, Y2, Y3 labeling throughout"
+      },
+      "check_units_specified": {
+        "verdict": "PASS",
+        "evidence": "Units clearly specified as ($000s) in financial statements"
+      },
+      "check_inputs_vs_outputs": {
+        "verdict": "PASS",
+        "evidence": "Clear distinction between assumption inputs and calculated outputs in presentation"
+      }
+    },
+    "rubric": {
+      "rubric_assumption_quality": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Well-sourced assumptions with benchmarks (Shopify ecosystem, Gartner market data), internally consistent growth deceleration, specific operational metrics"
+      },
+      "rubric_scenario_robustness": {
+        "score": 2,
+        "verdict": "FAIL",
+        "evidence": "Weak sensitivity analysis - only mentions 20% CAGR downside briefly, dismisses scenarios below 25% growth, lacks proper scenario modeling"
+      },
+      "rubric_operational_realism": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Strong operational details: sales rep ramp periods, quota carrying capacity, customer segmentation by ACV, realistic hiring plans"
+      },
+      "rubric_cash_flow_awareness": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Detailed cash flow modeling with working capital changes, burn multiple tracking, runway analysis, funding needs implicit"
+      },
+      "rubric_decision_utility": {
+        "score": 3,
+        "verdict": "PASS",
+        "evidence": "Good key metrics dashboard, traceable assumptions to outcomes, but limited scenario analysis reduces decision-making utility"
+      }
+    }
+  },
+  "verdicts": {
+    "check_balance_sheet": "PASS",
+    "check_cash_flow_reconciles": "PASS",
+    "check_pnl_flows_to_bs": "PASS",
+    "check_opening_balances": "PASS",
+    "check_no_hardcoded": "FAIL",
+    "check_growth_from_assumptions": "PASS",
+    "check_unit_economics_consistent": "PASS",
+    "check_no_circular_refs": "PASS",
+    "check_three_statements": "PASS",
+    "check_assumptions_page": "PASS",
+    "check_time_granularity": "PASS",
+    "check_full_horizon": "PASS",
+    "check_no_negative_revenue": "PASS",
+    "check_cash_not_negative": "PASS",
+    "check_margins_plausible": "PASS",
+    "check_headcount_math": "PASS",
+    "check_tax_rate": "PASS",
+    "check_periods_labeled": "PASS",
+    "check_units_specified": "PASS",
+    "check_inputs_vs_outputs": "PASS",
+    "rubric_assumption_quality": "PASS",
+    "rubric_scenario_robustness": "FAIL",
+    "rubric_operational_realism": "PASS",
+    "rubric_cash_flow_awareness": "PASS",
+    "rubric_decision_utility": "PASS"
+  }
+}

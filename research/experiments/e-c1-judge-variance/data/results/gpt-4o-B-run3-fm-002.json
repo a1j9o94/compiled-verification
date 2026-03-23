@@ -1,0 +1,64 @@
+{
+  "model": "gpt-4o",
+  "condition": "B",
+  "run": 3,
+  "output_id": "fm-002",
+  "timestamp": "2026-03-22T18:43:43.097180",
+  "elapsed_seconds": 8.519668102264404,
+  "raw_response": "### Evaluation of Financial Model: PetaBase \u2014 Series A Infrastructure SaaS\n\n---\n\n### Automated Checks\n\n#### Structural Integrity\n1. **Balance sheet balances**  \n   - Assets = Liabilities + Equity in all periods with no discrepancies.  \n   - **Verdict:** PASS  \n\n2. **Cash flow reconciles**  \n   - Ending cash on the cash flow statement matches the cash on the balance sheet for all periods.  \n   - **Verdict:** PASS  \n\n3. **P&L flows to balance sheet**  \n   - Retained earnings reconcile correctly: Net income flows into retained earnings, adjusted for losses.  \n   - **Verdict:** PASS  \n\n4. **Opening balances carry forward**  \n   - Each period's opening balances match the prior period's closing balances.  \n   - **Verdict:** PASS  \n\n#### Formula Integrity\n5. **No hardcoded numbers in calculation cells**  \n   - Revenue, COGS, and expenses derive from assumptions (e.g., MoM growth, gross margin, payroll burden).  \n   - **Verdict:** PASS  \n\n6. **Growth rates derive from stated assumptions**  \n   - MoM revenue growth rates and churn are explicitly tied to assumptions.  \n   - **Verdict:** PASS  \n\n7. **Unit economics are consistent**  \n   - Revenue = ACV \u00d7 customers, and gross margin aligns with assumptions.  \n   - **Verdict:** PASS  \n\n8. **No circular references**  \n   - No circular references are noted, and no undocumented iterations are required.  \n   - **Verdict:** PASS  \n\n#### Completeness\n9. **All three statements present**  \n   - P&L, balance sheet, and cash flow statement are included and reconciled.  \n   - **Verdict:** PASS  \n\n10. **Assumptions page/section exists**  \n    - Assumptions are clearly documented with sources and rationale.  \n    - **Verdict:** PASS  \n\n11. **Time granularity is consistent throughout**  \n    - Monthly granularity is used for calculations, with annual summaries provided.  \n    - **Verdict:** PASS  \n\n12. **Full time horizon covered**  \n    - The model covers a 3-year horizon, as required.  \n    - **Verdict:** PASS  \n\n#### Sanity Checks\n13. **No negative revenue**  \n    - Revenue is positive in all periods.  \n    - **Verdict:** PASS  \n\n14. **Cash doesn\u2019t go deeply negative without noted funding**  \n    - Cash remains positive throughout the model, with sufficient runway.  \n    - **Verdict:** PASS  \n\n15. **Margins are within plausible range**  \n    - Gross margins (72%-76%) and operating margins (-18% to -2%) are realistic for an early-stage SaaS company.  \n    - **Verdict:** PASS  \n\n16. **Headcount math works**  \n    - Payroll expense aligns with headcount plan and salary assumptions.  \n    - **Verdict:** PASS  \n\n17. **Tax rate applied or clearly labeled pre-tax**  \n    - No tax rate is applied, but the model is clearly labeled as pre-tax.  \n    - **Verdict:** PASS  \n\n#### Formatting\n18. **Periods are labeled**  \n    - Periods are clearly labeled (monthly and annual).  \n    - **Verdict:** PASS  \n\n19. **Units are specified**  \n    - Units are consistently labeled ($000s).  \n    - **Verdict:** PASS  \n\n20. **Inputs vs. outputs are distinguished**  \n    - Inputs (assumptions) are separated from outputs (calculated values).  \n    - **Verdict:** PASS  \n\n---\n\n### Judgment Rubric\n\n#### 1. Assumption Quality\n- **Evidence:**  \n  - Assumptions are sourced (e.g., OpenView benchmarks, Snowflake gross margin trajectory).  \n  - Internally consistent (e.g., decelerating growth rates align with SaaS scaling patterns).  \n  - Sensitivity ranges are included (e.g., tornado chart, bear/base/bull scenarios).  \n- **Reasoning:**  \n  - The assumptions are well-researched and credible, with clear ties to industry benchmarks.  \n- **Score:** 5  \n- **Verdict:** PASS  \n\n#### 2. Scenario Robustness\n- **Evidence:**  \n  - Three scenarios (bear, base, bull) are modeled, with key drivers (growth, churn, NRR) varied.  \n  - Break-even analysis is included.  \n- **Reasoning:**  \n  - The model provides robust scenario planning, helping to identify profitability drivers and funding needs.  \n- **Score:** 5  \n- **Verdict:** PASS  \n\n#### 3. Operational Realism\n- **Evidence:**  \n  - Hiring ramps are modeled by quarter, with sales reps ramping to quota over time.  \n  - Revenue growth reflects sales cycle lags and ACV mix.  \n  - Seasonal patterns are not explicitly modeled but are not critical for this SaaS business.  \n- **Reasoning:**  \n  - The model captures key operational dynamics, though some simplifications are present.  \n- **Score:** 4  \n- **Verdict:** PASS  \n\n#### 4. Cash Flow Awareness\n- **Evidence:**  \n  - Cash flow is reconciled and includes working capital changes (e.g., AR, deferred revenue).  \n  - Funding needs are identified in the bear case (Series B raise).  \n- **Reasoning:**  \n  - Cash flow is a central component of the model, with clear runway and burn rate metrics.  \n- **Score:** 5  \n- **Verdict:** PASS  \n\n#### 5. Decision Utility\n- **Evidence:**  \n  - Inputs are adjustable, with clear impact on outputs (e.g., tornado chart, scenario analysis).  \n  - Key metrics (LTV/CAC, burn rate, runway) are included in the dashboard.  \n- **Reasoning:**  \n  - The model is a practical decision tool, enabling users to test assumptions and evaluate outcomes.  \n- **Score:** 5  \n- **Verdict:** PASS  \n\n---\n\n### Final Evaluation\n\n```json\n{\n  \"checks\": {\n    \"structural_integrity\": {\n      \"balance_sheet_balances\": \"PASS\",\n      \"cash_flow_reconciles\": \"PASS\",\n      \"pnl_flows_to_balance_sheet\": \"PASS\",\n      \"opening_balances_carry_forward\": \"PASS\"\n    },\n    \"formula_integrity\": {\n      \"no_hardcoded_numbers\": \"PASS\",\n      \"growth_rates_from_assumptions\": \"PASS\",\n      \"unit_economics_consistent\": \"PASS\",\n      \"no_circular_references\": \"PASS\"\n    },\n    \"completeness\": {\n      \"all_three_statements_present\": \"PASS\",\n      \"assumptions_page_exists\": \"PASS\",\n      \"time_granularity_consistent\": \"PASS\",\n      \"full_time_horizon_covered\": \"PASS\"\n    },\n    \"sanity_checks\": {\n      \"no_negative_revenue\": \"PASS\",\n      \"cash_not_deeply_negative\": \"PASS\",\n      \"margins_plausible\": \"PASS\",\n      \"headcount_math_works\": \"PASS\",\n      \"tax_rate_applied_or_labeled\": \"PASS\"\n    },\n    \"formatting\": {\n      \"periods_labeled\": \"PASS\",\n      \"units_specified\": \"PASS\",\n      \"inputs_vs_outputs_distinguished\": \"PASS\"\n    }\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 5,\n    \"scenario_robustness\": 5,\n    \"operational_realism\": 4,\n    \"cash_flow_awareness\": 5,\n    \"decision_utility\": 5\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"PASS\",\n    \"scenario_robustness\": \"PASS\",\n    \"operational_realism\": \"PASS\",\n    \"cash_flow_awareness\": \"PASS\",\n    \"decision_utility\": \"PASS\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "structural_integrity": {
+        "balance_sheet_balances": "PASS",
+        "cash_flow_reconciles": "PASS",
+        "pnl_flows_to_balance_sheet": "PASS",
+        "opening_balances_carry_forward": "PASS"
+      },
+      "formula_integrity": {
+        "no_hardcoded_numbers": "PASS",
+        "growth_rates_from_assumptions": "PASS",
+        "unit_economics_consistent": "PASS",
+        "no_circular_references": "PASS"
+      },
+      "completeness": {
+        "all_three_statements_present": "PASS",
+        "assumptions_page_exists": "PASS",
+        "time_granularity_consistent": "PASS",
+        "full_time_horizon_covered": "PASS"
+      },
+      "sanity_checks": {
+        "no_negative_revenue": "PASS",
+        "cash_not_deeply_negative": "PASS",
+        "margins_plausible": "PASS",
+        "headcount_math_works": "PASS",
+        "tax_rate_applied_or_labeled": "PASS"
+      },
+      "formatting": {
+        "periods_labeled": "PASS",
+        "units_specified": "PASS",
+        "inputs_vs_outputs_distinguished": "PASS"
+      }
+    },
+    "rubric_scores": {
+      "assumption_quality": 5,
+      "scenario_robustness": 5,
+      "operational_realism": 4,
+      "cash_flow_awareness": 5,
+      "decision_utility": 5
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "PASS",
+      "scenario_robustness": "PASS",
+      "operational_realism": "PASS",
+      "cash_flow_awareness": "PASS",
+      "decision_utility": "PASS"
+    }
+  },
+  "verdicts": {
+    "structural_integrity": "FAIL",
+    "formula_integrity": "FAIL",
+    "completeness": "FAIL",
+    "sanity_checks": "FAIL",
+    "formatting": "FAIL"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "model": "gpt-4o",
+  "condition": "B",
+  "run": 2,
+  "output_id": "fm-010",
+  "timestamp": "2026-03-22T18:47:16.342899",
+  "elapsed_seconds": 15.567821025848389,
+  "raw_response": "### Evaluation of Financial Model: ComplianceAI \u2014 Series A RegTech SaaS\n\n---\n\n### Automated Checks\n\n#### **Structural Integrity**\n1. **Balance sheet balances**  \n   - **Evidence**: Total Assets = Total Liabilities + Equity in all periods (e.g., Y1: $5,003 = $1,550 + $3,453).  \n   - **Verdict**: PASS  \n\n2. **Cash flow reconciles**  \n   - **Evidence**: Ending cash on the cash flow statement matches cash on the balance sheet in all periods (e.g., Y1: $3,978 matches).  \n   - **Verdict**: PASS  \n\n3. **P&L flows to balance sheet**  \n   - **Evidence**: Retained earnings change matches net income adjusted for SBC. Y0 \u2192 Y1: Change in RE = -$723, NI = -$661, SBC = $62 (matches).  \n   - **Verdict**: PASS  \n\n4. **Opening balances carry forward**  \n   - **Evidence**: Each period's opening cash matches the prior period's closing cash (e.g., Y1 opening = Y0 ending = $3,978).  \n   - **Verdict**: PASS  \n\n---\n\n#### **Formula Integrity**\n5. **No hardcoded numbers in calculation cells**  \n   - **Evidence**: Revenue, COGS, and expenses derive from assumptions (e.g., revenue = ACV \u00d7 customers).  \n   - **Verdict**: PASS  \n\n6. **Growth rates derive from stated assumptions**  \n   - **Evidence**: Revenue growth rates (50%, 45%, 40%) match assumptions.  \n   - **Verdict**: PASS  \n\n7. **Unit economics are consistent**  \n   - **Evidence**: Revenue = ACV \u00d7 customers (e.g., Y1: $42K \u00d7 100 = $4,200K).  \n   - **Verdict**: PASS  \n\n8. **No circular references**  \n   - **Evidence**: No circular references found.  \n   - **Verdict**: PASS  \n\n---\n\n#### **Completeness**\n9. **All three statements present**  \n   - **Evidence**: P&L, balance sheet, and cash flow statement are all included.  \n   - **Verdict**: PASS  \n\n10. **Assumptions page/section exists**  \n    - **Evidence**: Assumptions are clearly listed with values and sources.  \n    - **Verdict**: PASS  \n\n11. **Time granularity is consistent throughout**  \n    - **Evidence**: All statements use annual periods.  \n    - **Verdict**: PASS  \n\n12. **Full time horizon covered (3 years)**  \n    - **Evidence**: Model covers 3 years (Y1\u2013Y3).  \n    - **Verdict**: PASS  \n\n---\n\n#### **Sanity Checks**\n13. **No negative revenue**  \n    - **Evidence**: Revenue is positive in all periods.  \n    - **Verdict**: PASS  \n\n14. **Cash doesn't go deeply negative without noted funding**  \n    - **Evidence**: Cash remains positive throughout ($3,001 minimum).  \n    - **Verdict**: PASS  \n\n15. **Margins are within plausible range**  \n    - **Evidence**: Gross margins (70\u201374%) and operating margins (-15% to -1%) are plausible for SaaS.  \n    - **Verdict**: PASS  \n\n16. **Headcount math works**  \n    - **Evidence**: Payroll expense = headcount \u00d7 average cost (e.g., Y1: $148K \u00d7 48 = $7,104K, matches OpEx breakdown).  \n    - **Verdict**: PASS  \n\n17. **Tax rate applied or clearly labeled pre-tax**  \n    - **Evidence**: Model assumes pre-tax income (no tax line).  \n    - **Verdict**: PASS  \n\n---\n\n#### **Formatting**\n18. **Periods are labeled**  \n    - **Evidence**: All periods are clearly labeled (Y1, Y2, Y3).  \n    - **Verdict**: PASS  \n\n19. **Units are specified**  \n    - **Evidence**: Units are labeled ($000s).  \n    - **Verdict**: PASS  \n\n20. **Inputs vs outputs are distinguished**  \n    - **Evidence**: Assumptions are separated from outputs.  \n    - **Verdict**: PASS  \n\n---\n\n### Judgment Rubric\n\n#### **1. Assumption Quality**\n- **Evidence**: Assumptions are stated but lack sourcing (e.g., \"fastest-growing compliance platform\" is unsourced). Some assumptions are contradictory (e.g., 5% churn vs \"switching is nearly impossible\"). Sensitivity analysis is missing.  \n- **Score**: 2 (Failing)  \n\n#### **2. Scenario Robustness**\n- **Evidence**: Three scenarios are included (bear, base, bull), but they lack detailed drivers. Break-even is identified but not deeply analyzed.  \n- **Score**: 3 (Adequate)  \n\n#### **3. Operational Realism**\n- **Evidence**: The model reflects some operational logic (e.g., hiring ramps, sales cycle). However, inconsistencies exist (e.g., NRR of 130% with limited CS growth, implementation revenue timing).  \n- **Score**: 2 (Failing)  \n\n#### **4. Cash Flow Awareness**\n- **Evidence**: Cash flow reconciles, and funding needs are identified. However, working capital dynamics (e.g., AR, deferred revenue) are oversimplified.  \n- **Score**: 3 (Adequate)  \n\n#### **5. Decision Utility**\n- **Evidence**: The model allows input changes and shows impacts. However, it lacks key decision metrics (e.g., ROI on hiring, AI cost savings).  \n- **Score**: 3 (Adequate)  \n\n---\n\n### Final Evaluation\n\n```json\n{\n  \"checks\": {\n    \"structural_integrity\": {\n      \"balance_sheet_balances\": \"PASS\",\n      \"cash_flow_reconciles\": \"PASS\",\n      \"pnl_flows_to_balance_sheet\": \"PASS\",\n      \"opening_balances_carry_forward\": \"PASS\"\n    },\n    \"formula_integrity\": {\n      \"no_hardcoded_numbers\": \"PASS\",\n      \"growth_rates_from_assumptions\": \"PASS\",\n      \"unit_economics_consistent\": \"PASS\",\n      \"no_circular_references\": \"PASS\"\n    },\n    \"completeness\": {\n      \"all_three_statements_present\": \"PASS\",\n      \"assumptions_page_exists\": \"PASS\",\n      \"time_granularity_consistent\": \"PASS\",\n      \"full_time_horizon_covered\": \"PASS\"\n    },\n    \"sanity_checks\": {\n      \"no_negative_revenue\": \"PASS\",\n      \"cash_not_deeply_negative\": \"PASS\",\n      \"margins_plausible\": \"PASS\",\n      \"headcount_math_works\": \"PASS\",\n      \"tax_rate_applied_or_pre_tax\": \"PASS\"\n    },\n    \"formatting\": {\n      \"periods_labeled\": \"PASS\",\n      \"units_specified\": \"PASS\",\n      \"inputs_vs_outputs_distinguished\": \"PASS\"\n    }\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 2,\n    \"scenario_robustness\": 3,\n    \"operational_realism\": 2,\n    \"cash_flow_awareness\": 3,\n    \"decision_utility\": 3\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"FAIL\",\n    \"scenario_robustness\": \"PASS\",\n    \"operational_realism\": \"FAIL\",\n    \"cash_flow_awareness\": \"PASS\",\n    \"decision_utility\": \"PASS\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "structural_integrity": {
+        "balance_sheet_balances": "PASS",
+        "cash_flow_reconciles": "PASS",
+        "pnl_flows_to_balance_sheet": "PASS",
+        "opening_balances_carry_forward": "PASS"
+      },
+      "formula_integrity": {
+        "no_hardcoded_numbers": "PASS",
+        "growth_rates_from_assumptions": "PASS",
+        "unit_economics_consistent": "PASS",
+        "no_circular_references": "PASS"
+      },
+      "completeness": {
+        "all_three_statements_present": "PASS",
+        "assumptions_page_exists": "PASS",
+        "time_granularity_consistent": "PASS",
+        "full_time_horizon_covered": "PASS"
+      },
+      "sanity_checks": {
+        "no_negative_revenue": "PASS",
+        "cash_not_deeply_negative": "PASS",
+        "margins_plausible": "PASS",
+        "headcount_math_works": "PASS",
+        "tax_rate_applied_or_pre_tax": "PASS"
+      },
+      "formatting": {
+        "periods_labeled": "PASS",
+        "units_specified": "PASS",
+        "inputs_vs_outputs_distinguished": "PASS"
+      }
+    },
+    "rubric_scores": {
+      "assumption_quality": 2,
+      "scenario_robustness": 3,
+      "operational_realism": 2,
+      "cash_flow_awareness": 3,
+      "decision_utility": 3
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "FAIL",
+      "scenario_robustness": "PASS",
+      "operational_realism": "FAIL",
+      "cash_flow_awareness": "PASS",
+      "decision_utility": "PASS"
+    }
+  },
+  "verdicts": {
+    "structural_integrity": "FAIL",
+    "formula_integrity": "FAIL",
+    "completeness": "FAIL",
+    "sanity_checks": "FAIL",
+    "formatting": "FAIL"
+  }
+}

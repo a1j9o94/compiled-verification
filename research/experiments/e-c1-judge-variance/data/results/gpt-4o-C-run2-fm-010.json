@@ -1,0 +1,147 @@
+{
+  "model": "gpt-4o",
+  "condition": "C",
+  "run": 2,
+  "output_id": "fm-010",
+  "timestamp": "2026-03-22T18:59:54.315625",
+  "elapsed_seconds": 5.678244113922119,
+  "raw_response": "```json\n{\n  \"checks\": {\n    \"check_balance_sheet\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Balance sheet balances in all periods (Assets = Liabilities + Equity).\"\n    },\n    \"check_cash_flow_reconciles\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Ending cash on cash flow statement matches cash on balance sheet for all periods.\"\n    },\n    \"check_pnl_flows_to_bs\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Net income flows to retained earnings, adjusted for SBC and dividends.\"\n    },\n    \"check_opening_balances\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Each period's opening balances match the prior period's closing balances.\"\n    },\n    \"check_no_hardcoded\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Revenue growth rates and gross margin improvements are not clearly derived from assumptions.\"\n    },\n    \"check_growth_from_assumptions\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Revenue growth and ACV increases are not fully supported by assumptions or benchmarks.\"\n    },\n    \"check_unit_economics_consistent\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Revenue = ACV \u00d7 customer count is consistent across periods.\"\n    },\n    \"check_no_circular_refs\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"No circular references detected in the model.\"\n    },\n    \"check_three_statements\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"All three financial statements (P&L, balance sheet, cash flow) are present.\"\n    },\n    \"check_assumptions_page\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Assumptions are clearly stated in a dedicated section.\"\n    },\n    \"check_time_granularity\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Time granularity is consistent across all statements (annual).\"\n    },\n    \"check_full_horizon\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Model covers a full 3-year horizon as required.\"\n    },\n    \"check_no_negative_revenue\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"No negative revenue is present in the model.\"\n    },\n    \"check_cash_not_negative\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Cash does not go negative in any period, though it approaches low levels in Y3.\"\n    },\n    \"check_margins_plausible\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Gross margin improvement from 70% to 74% is not well-supported given headcount growth.\"\n    },\n    \"check_headcount_math\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Headcount math aligns with payroll expense calculations.\"\n    },\n    \"check_tax_rate\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Tax rate is clearly labeled as pre-tax, with no taxes applied due to losses.\"\n    },\n    \"check_periods_labeled\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Periods are clearly labeled (Y1, Y2, Y3).\"\n    },\n    \"check_units_specified\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Units are specified as $000s throughout the model.\"\n    },\n    \"check_inputs_vs_outputs\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Inputs and outputs are distinguishable, with assumptions clearly separated.\"\n    }\n  },\n  \"rubric\": {\n    \"rubric_assumption_quality\": {\n      \"score\": 2,\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Assumptions are stated but not sourced or benchmarked. Growth rates and margin improvements appear arbitrary.\"\n    },\n    \"rubric_scenario_robustness\": {\n      \"score\": 4,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Three scenarios (bear, base, bull) are provided with clear break-even analysis and sensitivity drivers.\"\n    },\n    \"rubric_operational_realism\": {\n      \"score\": 3,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Major dynamics like hiring ramps and sales cycles are included, but inconsistencies exist in NRR, churn, and implementation timelines.\"\n    },\n    \"rubric_cash_flow_awareness\": {\n      \"score\": 4,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Cash flow is modeled and reconciles. Funding needs are identified in bear scenarios.\"\n    },\n    \"rubric_decision_utility\": {\n      \"score\": 4,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Model allows for input changes and sensitivity analysis, though some key metrics (e.g., NRR drivers) lack clarity.\"\n    }\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "check_balance_sheet": {
+        "verdict": "PASS",
+        "evidence": "Balance sheet balances in all periods (Assets = Liabilities + Equity)."
+      },
+      "check_cash_flow_reconciles": {
+        "verdict": "PASS",
+        "evidence": "Ending cash on cash flow statement matches cash on balance sheet for all periods."
+      },
+      "check_pnl_flows_to_bs": {
+        "verdict": "PASS",
+        "evidence": "Net income flows to retained earnings, adjusted for SBC and dividends."
+      },
+      "check_opening_balances": {
+        "verdict": "PASS",
+        "evidence": "Each period's opening balances match the prior period's closing balances."
+      },
+      "check_no_hardcoded": {
+        "verdict": "FAIL",
+        "evidence": "Revenue growth rates and gross margin improvements are not clearly derived from assumptions."
+      },
+      "check_growth_from_assumptions": {
+        "verdict": "FAIL",
+        "evidence": "Revenue growth and ACV increases are not fully supported by assumptions or benchmarks."
+      },
+      "check_unit_economics_consistent": {
+        "verdict": "PASS",
+        "evidence": "Revenue = ACV \u00d7 customer count is consistent across periods."
+      },
+      "check_no_circular_refs": {
+        "verdict": "PASS",
+        "evidence": "No circular references detected in the model."
+      },
+      "check_three_statements": {
+        "verdict": "PASS",
+        "evidence": "All three financial statements (P&L, balance sheet, cash flow) are present."
+      },
+      "check_assumptions_page": {
+        "verdict": "PASS",
+        "evidence": "Assumptions are clearly stated in a dedicated section."
+      },
+      "check_time_granularity": {
+        "verdict": "PASS",
+        "evidence": "Time granularity is consistent across all statements (annual)."
+      },
+      "check_full_horizon": {
+        "verdict": "PASS",
+        "evidence": "Model covers a full 3-year horizon as required."
+      },
+      "check_no_negative_revenue": {
+        "verdict": "PASS",
+        "evidence": "No negative revenue is present in the model."
+      },
+      "check_cash_not_negative": {
+        "verdict": "PASS",
+        "evidence": "Cash does not go negative in any period, though it approaches low levels in Y3."
+      },
+      "check_margins_plausible": {
+        "verdict": "FAIL",
+        "evidence": "Gross margin improvement from 70% to 74% is not well-supported given headcount growth."
+      },
+      "check_headcount_math": {
+        "verdict": "PASS",
+        "evidence": "Headcount math aligns with payroll expense calculations."
+      },
+      "check_tax_rate": {
+        "verdict": "PASS",
+        "evidence": "Tax rate is clearly labeled as pre-tax, with no taxes applied due to losses."
+      },
+      "check_periods_labeled": {
+        "verdict": "PASS",
+        "evidence": "Periods are clearly labeled (Y1, Y2, Y3)."
+      },
+      "check_units_specified": {
+        "verdict": "PASS",
+        "evidence": "Units are specified as $000s throughout the model."
+      },
+      "check_inputs_vs_outputs": {
+        "verdict": "PASS",
+        "evidence": "Inputs and outputs are distinguishable, with assumptions clearly separated."
+      }
+    },
+    "rubric": {
+      "rubric_assumption_quality": {
+        "score": 2,
+        "verdict": "FAIL",
+        "evidence": "Assumptions are stated but not sourced or benchmarked. Growth rates and margin improvements appear arbitrary."
+      },
+      "rubric_scenario_robustness": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Three scenarios (bear, base, bull) are provided with clear break-even analysis and sensitivity drivers."
+      },
+      "rubric_operational_realism": {
+        "score": 3,
+        "verdict": "PASS",
+        "evidence": "Major dynamics like hiring ramps and sales cycles are included, but inconsistencies exist in NRR, churn, and implementation timelines."
+      },
+      "rubric_cash_flow_awareness": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Cash flow is modeled and reconciles. Funding needs are identified in bear scenarios."
+      },
+      "rubric_decision_utility": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Model allows for input changes and sensitivity analysis, though some key metrics (e.g., NRR drivers) lack clarity."
+      }
+    }
+  },
+  "verdicts": {
+    "check_balance_sheet": "PASS",
+    "check_cash_flow_reconciles": "PASS",
+    "check_pnl_flows_to_bs": "PASS",
+    "check_opening_balances": "PASS",
+    "check_no_hardcoded": "FAIL",
+    "check_growth_from_assumptions": "FAIL",
+    "check_unit_economics_consistent": "PASS",
+    "check_no_circular_refs": "PASS",
+    "check_three_statements": "PASS",
+    "check_assumptions_page": "PASS",
+    "check_time_granularity": "PASS",
+    "check_full_horizon": "PASS",
+    "check_no_negative_revenue": "PASS",
+    "check_cash_not_negative": "PASS",
+    "check_margins_plausible": "FAIL",
+    "check_headcount_math": "PASS",
+    "check_tax_rate": "PASS",
+    "check_periods_labeled": "PASS",
+    "check_units_specified": "PASS",
+    "check_inputs_vs_outputs": "PASS",
+    "rubric_assumption_quality": "FAIL",
+    "rubric_scenario_robustness": "PASS",
+    "rubric_operational_realism": "PASS",
+    "rubric_cash_flow_awareness": "PASS",
+    "rubric_decision_utility": "PASS"
+  }
+}

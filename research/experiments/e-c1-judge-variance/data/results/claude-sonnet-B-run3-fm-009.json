@@ -1,0 +1,69 @@
+{
+  "model": "claude-sonnet",
+  "condition": "B",
+  "run": 3,
+  "output_id": "fm-009",
+  "timestamp": "2026-03-22T19:03:34.507599",
+  "elapsed_seconds": 29.625987768173218,
+  "raw_response": "I'll evaluate this financial model systematically against each criterion.\n\n## Automated Checks\n\n### Structural Integrity\n\n**Balance sheet balances**: \n- Y0: Assets $8,775K = Liabilities + Equity $8,775K \u2713\n- Y1: Assets $8,381K = Liabilities + Equity $8,381K \u2713  \n- Y2: Assets $8,223K = Liabilities + Equity $8,223K \u2713\n- Y3: Assets $8,888K = Liabilities + Equity $8,888K \u2713\nThe model explicitly states \"*Balance check: \u2713 all periods*\"\n**PASS**\n\n**Cash flow reconciles**:\n- Y1: Ending cash on CFS $6,848K = Cash on BS $6,848K \u2713\n- Y2: Ending cash on CFS $6,421K = Cash on BS $6,421K \u2713\n- Y3: Ending cash on CFS $6,796K = Cash on BS $6,796K \u2713\nThe model states \"*Ending cash matches balance sheet \u2713*\"\n**PASS**\n\n**P&L flows to balance sheet**:\nThe model shows: \"RE change = NI: Y0\u2192Y1: -3,897-(-3,050)=-847. NI=-447. Diff=$400K SBC.\"\nThis demonstrates proper reconciliation accounting for stock-based compensation.\n**PASS**\n\n**Opening balances carry forward**:\nEach period's opening balances (e.g., Y1 beginning cash $7,500K = Y0 ending cash) carry forward correctly as shown in the cash flow statement.\n**PASS**\n\n### Formula Integrity\n\n**No hardcoded numbers in calculation cells**:\nRevenue derives from stated assumptions (Starting ARR $5.1M, growth rates 38%/32%/28%). COGS calculated as 24% of revenue per assumptions. Expenses tied to headcount assumptions with $152K avg cost.\n**PASS**\n\n**Growth rates derive from stated assumptions**:\nRevenue growth rates are explicitly stated as \"38% Y1, 32% Y2, 28% Y3\" with source \"benchmarked to Shopify App ecosystem growth rates at similar stage.\"\n**PASS**\n\n**Unit economics are consistent**:\nThe model shows consistent unit economics: ACV $36K, customers growing from 168\u2192208\u2192252, which aligns with revenue growth patterns.\n**PASS**\n\n**No circular references**:\nNo circular references are documented or apparent in the model structure.\n**PASS**\n\n### Completeness\n\n**All three statements present**:\nIncome Statement, Balance Sheet, and Cash Flow Statement are all included.\n**PASS**\n\n**Assumptions page/section exists**:\nComprehensive assumptions section covers growth rates, margins, headcount, and key metrics with sources.\n**PASS**\n\n**Time granularity is consistent**:\nAll statements use annual periods consistently throughout.\n**PASS**\n\n**Full time horizon covered**:\nModel covers 3 years (Y1, Y2, Y3) as required.\n**PASS**\n\n### Sanity Checks\n\n**No negative revenue**:\nAll revenue figures are positive across all periods.\n**PASS**\n\n**Cash doesn't go deeply negative**:\nCash remains positive throughout: $6,848K \u2192 $6,421K \u2192 $6,796K.\n**PASS**\n\n**Margins within plausible range**:\nGross margin of 76% is reasonable for SaaS. Operating margins progress from -7% to +2%, which is typical for growth-stage SaaS.\n**PASS**\n\n**Headcount math works**:\nTotal headcount grows 48\u219263\u219278\u219293. With $152K avg cost, this roughly aligns with total expenses shown.\n**PASS**\n\n**Tax rate applied**:\nTax is shown as $0, which is reasonable for a loss-making company with NOLs.\n**PASS**\n\n### Formatting\n\n**Periods are labeled**:\nAll periods clearly labeled as Y0, Y1, Y2, Y3.\n**PASS**\n\n**Units are specified**:\nAll financial statements clearly marked as \"($000s)\".\n**PASS**\n\n**Inputs vs outputs distinguished**:\nAssumptions section clearly separates inputs, and financial statements show calculated outputs.\n**PASS**\n\n## Judgment Rubric\n\n### 1. Assumption Quality (1-5)\nThe assumptions are well-sourced with specific benchmarks (\"Shopify App ecosystem growth rates,\" \"Gartner $8.2B market size\"). Key metrics like NRR (112%), churn (10%), and ACV ($36K) are stated with context. However, sensitivity analysis is very weak - only one brief downside scenario mentioned.\n**Score: 4**\n\n### 2. Scenario Robustness (1-5)\nThe sensitivity analysis section is notably weak. It mentions only one downside scenario (20% CAGR growth) and dismissively states \"we don't see a realistic scenario where growth drops below 25%.\" No upside scenarios, no break-even analysis, no multiple assumption sensitivity.\n**Score: 2**\n\n### 3. Operational Realism (1-5)\nThe model captures key operational dynamics: sales rep ramping (6-month ramp to full quota), headcount growth by function, working capital changes, and realistic SaaS metrics. The progression from losses to profitability reflects typical SaaS scaling patterns.\n**Score: 4**\n\n### 4. Cash Flow Awareness (1-5)\nCash flow statement is complete and reconciles properly. Working capital components (AR, deferred revenue, AP) are modeled. The model shows positive cash generation by Y3. However, funding needs and runway analysis could be more explicit.\n**Score: 4**\n\n### 5. Decision Utility (1-5)\nThe model provides key SaaS metrics (LTV/CAC, Rule of 40, burn multiple) that would guide decisions. Assumptions are clearly stated so inputs can be changed. However, the weak sensitivity analysis limits its utility as a decision tool for evaluating different scenarios.\n**Score: 3**\n\n## Final Evaluation\n\n```json\n{\n  \"checks\": {\n    \"balance_sheet_balances\": \"PASS\",\n    \"cash_flow_reconciles\": \"PASS\", \n    \"pl_flows_to_bs\": \"PASS\",\n    \"opening_balances_carry_forward\": \"PASS\",\n    \"no_hardcoded_numbers\": \"PASS\",\n    \"growth_rates_from_assumptions\": \"PASS\",\n    \"unit_economics_consistent\": \"PASS\",\n    \"no_circular_references\": \"PASS\",\n    \"all_statements_present\": \"PASS\",\n    \"assumptions_exist\": \"PASS\",\n    \"time_granularity_consistent\": \"PASS\",\n    \"full_time_horizon\": \"PASS\",\n    \"no_negative_revenue\": \"PASS\",\n    \"cash_not_deeply_negative\": \"PASS\",\n    \"margins_plausible\": \"PASS\",\n    \"headcount_math_works\": \"PASS\",\n    \"tax_rate_applied\": \"PASS\",\n    \"periods_labeled\": \"PASS\",\n    \"units_specified\": \"PASS\",\n    \"inputs_vs_outputs_distinguished\": \"PASS\"\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 4,\n    \"scenario_robustness\": 2,\n    \"operational_realism\": 4,\n    \"cash_flow_awareness\": 4,\n    \"decision_utility\": 3\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"PASS\",\n    \"scenario_robustness\": \"FAIL\", \n    \"operational_realism\": \"PASS\",\n    \"cash_flow_awareness\": \"PASS\",\n    \"decision_utility\": \"PASS\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "balance_sheet_balances": "PASS",
+      "cash_flow_reconciles": "PASS",
+      "pl_flows_to_bs": "PASS",
+      "opening_balances_carry_forward": "PASS",
+      "no_hardcoded_numbers": "PASS",
+      "growth_rates_from_assumptions": "PASS",
+      "unit_economics_consistent": "PASS",
+      "no_circular_references": "PASS",
+      "all_statements_present": "PASS",
+      "assumptions_exist": "PASS",
+      "time_granularity_consistent": "PASS",
+      "full_time_horizon": "PASS",
+      "no_negative_revenue": "PASS",
+      "cash_not_deeply_negative": "PASS",
+      "margins_plausible": "PASS",
+      "headcount_math_works": "PASS",
+      "tax_rate_applied": "PASS",
+      "periods_labeled": "PASS",
+      "units_specified": "PASS",
+      "inputs_vs_outputs_distinguished": "PASS"
+    },
+    "rubric_scores": {
+      "assumption_quality": 4,
+      "scenario_robustness": 2,
+      "operational_realism": 4,
+      "cash_flow_awareness": 4,
+      "decision_utility": 3
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "PASS",
+      "scenario_robustness": "FAIL",
+      "operational_realism": "PASS",
+      "cash_flow_awareness": "PASS",
+      "decision_utility": "PASS"
+    }
+  },
+  "verdicts": {
+    "balance_sheet_balances": "PASS",
+    "cash_flow_reconciles": "PASS",
+    "pl_flows_to_bs": "PASS",
+    "opening_balances_carry_forward": "PASS",
+    "no_hardcoded_numbers": "PASS",
+    "growth_rates_from_assumptions": "PASS",
+    "unit_economics_consistent": "PASS",
+    "no_circular_references": "PASS",
+    "all_statements_present": "PASS",
+    "assumptions_exist": "PASS",
+    "time_granularity_consistent": "PASS",
+    "full_time_horizon": "PASS",
+    "no_negative_revenue": "PASS",
+    "cash_not_deeply_negative": "PASS",
+    "margins_plausible": "PASS",
+    "headcount_math_works": "PASS",
+    "tax_rate_applied": "PASS",
+    "periods_labeled": "PASS",
+    "units_specified": "PASS",
+    "inputs_vs_outputs_distinguished": "PASS"
+  }
+}

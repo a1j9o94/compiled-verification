@@ -1,0 +1,64 @@
+{
+  "model": "gpt-4o",
+  "condition": "B",
+  "run": 1,
+  "output_id": "fm-006",
+  "timestamp": "2026-03-22T18:45:08.752583",
+  "elapsed_seconds": 9.378525972366333,
+  "raw_response": "### Evaluation of the GreenRoute Financial Model\n\nBelow is the detailed evaluation of the financial model against the provided rubric. Each criterion is assessed step by step, with reasoning and a final verdict.\n\n---\n\n### Automated Checks\n\n#### Structural Integrity\n1. **Balance sheet balances**  \n   - **Evidence**: Total Assets = Total Liabilities + Equity for all periods (Y0-Y3).  \n   - **Reasoning**: The balance sheet balances perfectly in all periods, within the tolerance of \u00b1$1.  \n   - **Verdict**: **PASS**\n\n2. **Cash flow reconciles**  \n   - **Evidence**: Ending cash on the cash flow statement matches the cash balance on the balance sheet for all periods.  \n   - **Reasoning**: Ending cash aligns perfectly for all periods (e.g., Y1: $12,109).  \n   - **Verdict**: **PASS**\n\n3. **P&L flows to balance sheet**  \n   - **Evidence**: Retained earnings change matches net income adjusted for stock-based compensation (SBC). Discrepancy explained as SBC adjustment.  \n   - **Reasoning**: The model correctly accounts for SBC as a non-cash expense, which reduces retained earnings but is added back to APIC. This is explicitly documented.  \n   - **Verdict**: **PASS**\n\n4. **Opening balances carry forward**  \n   - **Evidence**: Each period's opening cash matches the prior period's closing cash (e.g., Y0 \u2192 Y1: $12,400 \u2192 $12,109).  \n   - **Reasoning**: Opening balances are consistent across all periods.  \n   - **Verdict**: **PASS**\n\n---\n\n#### Formula Integrity\n5. **No hardcoded numbers in calculation cells**  \n   - **Evidence**: Revenue, expenses, and other calculations derive from assumptions (e.g., revenue = ACV \u00d7 customer count).  \n   - **Reasoning**: No hardcoded values were found in calculation cells. All numbers trace back to assumptions.  \n   - **Verdict**: **PASS**\n\n6. **Growth rates derive from stated assumptions**  \n   - **Evidence**: Revenue CAGR of 55% aligns with management's stated assumption. Other growth rates (e.g., ACV, churn) are explicitly linked to assumptions.  \n   - **Reasoning**: Growth rates are consistent with stated assumptions and not arbitrary.  \n   - **Verdict**: **PASS**\n\n7. **Unit economics are consistent**  \n   - **Evidence**: Revenue = ACV \u00d7 customer count; payroll = headcount \u00d7 salary \u00d7 months.  \n   - **Reasoning**: Unit economics are internally consistent and logical.  \n   - **Verdict**: **PASS**\n\n8. **No circular references**  \n   - **Evidence**: No circular references were identified in the model.  \n   - **Reasoning**: The model is free of circular references, and no iterative calculations are required.  \n   - **Verdict**: **PASS**\n\n---\n\n#### Completeness\n9. **All three statements present**  \n   - **Evidence**: P&L, balance sheet, and cash flow statement are all included.  \n   - **Reasoning**: The model includes all three financial statements, with clear linkages between them.  \n   - **Verdict**: **PASS**\n\n10. **Assumptions page/section exists**  \n    - **Evidence**: Assumptions are clearly listed in a dedicated section, with sources provided where applicable.  \n    - **Reasoning**: The assumptions page is well-structured and comprehensive.  \n    - **Verdict**: **PASS**\n\n11. **Time granularity is consistent throughout**  \n    - **Evidence**: All statements and metrics are presented on an annual basis.  \n    - **Reasoning**: The time granularity is consistent across the model.  \n    - **Verdict**: **PASS**\n\n12. **Full time horizon covered (3 years)**  \n    - **Evidence**: The model covers a 3-year period (Y1-Y3).  \n    - **Reasoning**: The full time horizon is covered as required.  \n    - **Verdict**: **PASS**\n\n---\n\n#### Sanity Checks\n13. **No negative revenue**  \n    - **Evidence**: Revenue is positive in all periods.  \n    - **Reasoning**: Revenue figures are logical and consistent with assumptions.  \n    - **Verdict**: **PASS**\n\n14. **Cash doesn't go deeply negative without noted funding**  \n    - **Evidence**: Cash remains positive throughout the model.  \n    - **Reasoning**: The model identifies funding needs and maintains positive cash balances.  \n    - **Verdict**: **PASS**\n\n15. **Margins are within plausible range**  \n    - **Evidence**: Gross margin improves from 85% to 89%; operating margin improves from 4% to 16%.  \n    - **Reasoning**: Margins are aggressive but plausible given SaaS benchmarks.  \n    - **Verdict**: **PASS**\n\n16. **Headcount math works**  \n    - **Evidence**: Payroll = headcount \u00d7 $160K fully loaded cost.  \n    - **Reasoning**: Headcount math is consistent with assumptions.  \n    - **Verdict**: **PASS**\n\n17. **Tax rate applied or clearly labeled pre-tax**  \n    - **Evidence**: The model does not explicitly apply a tax rate, but net income is labeled as pre-tax.  \n    - **Reasoning**: The labeling is clear and avoids ambiguity.  \n    - **Verdict**: **PASS**\n\n---\n\n#### Formatting\n18. **Periods are labeled**  \n    - **Evidence**: Periods are clearly labeled as Y1, Y2, Y3.  \n    - **Reasoning**: Period labeling is clear and consistent.  \n    - **Verdict**: **PASS**\n\n19. **Units are specified**  \n    - **Evidence**: Units are specified as $000s throughout the model.  \n    - **Reasoning**: Units are clearly defined.  \n    - **Verdict**: **PASS**\n\n20. **Inputs vs outputs are distinguished**  \n    - **Evidence**: Inputs are separated in the assumptions section, and outputs are calculated in the financial statements.  \n    - **Reasoning**: Inputs and outputs are clearly distinguished.  \n    - **Verdict**: **PASS**\n\n---\n\n### Judgment Rubric\n\n1. **Assumption Quality**  \n   - **Score**: 4  \n   - **Reasoning**: Assumptions are reasonable and internally consistent but lack external sourcing for some key metrics (e.g., CAC reduction). Sensitivity analysis is included.\n\n2. **Scenario Robustness**  \n   - **Score**: 5  \n   - **Reasoning**: The model includes base, conservative, and upside scenarios, with clear drivers of profitability and break-even analysis.\n\n3. **Operational Realism**  \n   - **Score**: 4  \n   - **Reasoning**: The model reflects operational dynamics (e.g., hiring ramps, ACV growth), but some assumptions (e.g., onboarding improvements) are aggressive.\n\n4. **Cash Flow Awareness**  \n   - **Score**: 5  \n   - **Reasoning**: Cash flow is well-modeled, reconciles with other statements, and identifies funding needs and timing.\n\n5. **Decision Utility**  \n   - **Score**: 5  \n   - **Reasoning**: The model is a decision-making tool, with sensitivity analysis and clear input-output relationships.\n\n---\n\n### Final Evaluation (JSON)\n\n```json\n{\n  \"checks\": {\n    \"structural_integrity\": {\n      \"balance_sheet_balances\": \"PASS\",\n      \"cash_flow_reconciles\": \"PASS\",\n      \"pnl_flows_to_balance_sheet\": \"PASS\",\n      \"opening_balances_carry_forward\": \"PASS\"\n    },\n    \"formula_integrity\": {\n      \"no_hardcoded_numbers\": \"PASS\",\n      \"growth_rates_from_assumptions\": \"PASS\",\n      \"unit_economics_consistent\": \"PASS\",\n      \"no_circular_references\": \"PASS\"\n    },\n    \"completeness\": {\n      \"all_three_statements\": \"PASS\",\n      \"assumptions_page_exists\": \"PASS\",\n      \"time_granularity_consistent\": \"PASS\",\n      \"full_time_horizon_covered\": \"PASS\"\n    },\n    \"sanity_checks\": {\n      \"no_negative_revenue\": \"PASS\",\n      \"cash_not_deeply_negative\": \"PASS\",\n      \"margins_plausible\": \"PASS\",\n      \"headcount_math_works\": \"PASS\",\n      \"tax_rate_or_pre_tax\": \"PASS\"\n    },\n    \"formatting\": {\n      \"periods_labeled\": \"PASS\",\n      \"units_specified\": \"PASS\",\n      \"inputs_vs_outputs_distinguished\": \"PASS\"\n    }\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 4,\n    \"scenario_robustness\": 5,\n    \"operational_realism\": 4,\n    \"cash_flow_awareness\": 5,\n    \"decision_utility\": 5\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"PASS\",\n    \"scenario_robustness\": \"PASS\",\n    \"operational_realism\": \"PASS\",\n    \"cash_flow_awareness\": \"PASS\",\n    \"decision_utility\": \"PASS\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "structural_integrity": {
+        "balance_sheet_balances": "PASS",
+        "cash_flow_reconciles": "PASS",
+        "pnl_flows_to_balance_sheet": "PASS",
+        "opening_balances_carry_forward": "PASS"
+      },
+      "formula_integrity": {
+        "no_hardcoded_numbers": "PASS",
+        "growth_rates_from_assumptions": "PASS",
+        "unit_economics_consistent": "PASS",
+        "no_circular_references": "PASS"
+      },
+      "completeness": {
+        "all_three_statements": "PASS",
+        "assumptions_page_exists": "PASS",
+        "time_granularity_consistent": "PASS",
+        "full_time_horizon_covered": "PASS"
+      },
+      "sanity_checks": {
+        "no_negative_revenue": "PASS",
+        "cash_not_deeply_negative": "PASS",
+        "margins_plausible": "PASS",
+        "headcount_math_works": "PASS",
+        "tax_rate_or_pre_tax": "PASS"
+      },
+      "formatting": {
+        "periods_labeled": "PASS",
+        "units_specified": "PASS",
+        "inputs_vs_outputs_distinguished": "PASS"
+      }
+    },
+    "rubric_scores": {
+      "assumption_quality": 4,
+      "scenario_robustness": 5,
+      "operational_realism": 4,
+      "cash_flow_awareness": 5,
+      "decision_utility": 5
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "PASS",
+      "scenario_robustness": "PASS",
+      "operational_realism": "PASS",
+      "cash_flow_awareness": "PASS",
+      "decision_utility": "PASS"
+    }
+  },
+  "verdicts": {
+    "structural_integrity": "FAIL",
+    "formula_integrity": "FAIL",
+    "completeness": "FAIL",
+    "sanity_checks": "FAIL",
+    "formatting": "FAIL"
+  }
+}

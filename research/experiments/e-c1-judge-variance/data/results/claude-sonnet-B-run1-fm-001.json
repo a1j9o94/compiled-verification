@@ -1,0 +1,69 @@
+{
+  "model": "claude-sonnet",
+  "condition": "B",
+  "run": 1,
+  "output_id": "fm-001",
+  "timestamp": "2026-03-22T18:48:09.099917",
+  "elapsed_seconds": 39.441983222961426,
+  "raw_response": "I'll evaluate this financial model systematically against each criterion.\n\n## Automated Checks\n\n### Structural Integrity\n\n**Balance sheet balances**: Looking at the balance sheet, I can verify:\n- Y0: Assets 9,190 = Liabilities 1,640 + Equity 7,550 \u2713\n- Y1: Assets 9,051 = Liabilities 2,136 + Equity 6,915 \u2713  \n- Y2: Assets 8,924 = Liabilities 2,800 + Equity 6,124 \u2713\n- Y3: Assets 9,934 = Liabilities 3,676 + Equity 6,258 \u2713\nThe model explicitly states \"Balance check: Assets = L + E in all periods \u2713\"\n**PASS**\n\n**Cash flow reconciles**: The cash flow statement shows ending cash that matches the balance sheet:\n- Y1: CFS ending cash 7,844 = BS cash 7,844 \u2713\n- Y2: CFS ending cash 7,438 = BS cash 7,438 \u2713  \n- Y3: CFS ending cash 8,101 = BS cash 8,101 \u2713\nThe model states \"Ending cash matches balance sheet cash in all periods \u2713\"\n**PASS**\n\n**P&L flows to balance sheet**: Checking retained earnings changes:\n- Y1: RE change = (4,950) - (5,585) = -635, but Net Income = (476). The difference of 159 is unexplained and could be dividends/other adjustments, but this isn't documented.\n- Y2: RE change = (5,585) - (6,376) = -791, but Net Income = (76). Difference of 715 is unexplained.\n- Y3: RE change = (6,376) - (6,242) = +134, but Net Income = 313. Difference of 179 is unexplained.\n**FAIL** - The retained earnings changes don't reconcile with net income and adjustments aren't explained.\n\n**Opening balances carry forward**: Each period's opening balances equal the prior period's closing balances as shown in the balance sheet progression.\n**PASS**\n\n### Formula Integrity\n\n**No hardcoded numbers in calculation cells**: The model shows clear derivation from assumptions - revenue grows at stated 35% CAGR, expenses are percentages of revenue as stated, headcount costs derive from stated per-employee costs ($165K average).\n**PASS**\n\n**Growth rates derive from stated assumptions**: Revenue growth of 35% CAGR is explicitly stated and sourced to \"Median Series B SaaS (Bessemer Cloud Index 2025: 30-45% range)\".\n**PASS**\n\n**Unit economics are consistent**: Revenue calculations appear consistent - starting ARR $4.2M growing at 35% reaches the stated levels. Headcount \u00d7 cost per employee relationships are documented.\n**PASS**\n\n**No circular references**: No circular references are apparent or documented.\n**PASS**\n\n### Completeness\n\n**All three statements present**: Income Statement, Balance Sheet, and Cash Flow Statement are all included.\n**PASS**\n\n**Assumptions page/section exists**: Comprehensive assumptions section with sources and detailed hiring ramp.\n**PASS**\n\n**Time granularity is consistent**: All statements use annual periods consistently.\n**PASS**\n\n**Full time horizon covered**: 3 years of projections (Y1, Y2, Y3) are provided.\n**PASS**\n\n### Sanity Checks\n\n**No negative revenue**: All revenue figures are positive.\n**PASS**\n\n**Cash doesn't go deeply negative**: Cash remains positive throughout, declining from $8.2M to $7.4M then recovering to $8.1M. Runway analysis shows 36+ months.\n**PASS**\n\n**Margins within plausible range**: Gross margins 78-80% are reasonable for SaaS. Operating margins from -10% to +2% are plausible for growth-stage SaaS.\n**PASS**\n\n**Headcount math works**: 48\u219295 employees at $165K average = reasonable payroll expense levels relative to the R&D, S&M, and G&A expenses shown.\n**PASS**\n\n**Tax rate applied**: 0% tax rate is explained by NOL carryforward, which is reasonable for a loss-making growth company.\n**PASS**\n\n### Formatting\n\n**Periods are labeled**: Y1, Y2, Y3 clearly labeled throughout.\n**PASS**\n\n**Units are specified**: All financial figures clearly marked as ($000s).\n**PASS**\n\n**Inputs vs outputs distinguished**: Assumptions section clearly separates inputs, and financial statements show calculated outputs.\n**PASS**\n\n## Judgment Rubric\n\n### 1. Assumption Quality (1-5)\nThe assumptions are well-sourced with specific benchmarks (Bessemer Cloud Index, KeyBanc survey, Datadog comparables). They're internally consistent and include detailed operational assumptions like hiring ramps and productivity curves. However, sensitivity ranges could be more comprehensive.\n**Score: 4**\n\n### 2. Scenario Robustness (1-5) \nExcellent sensitivity analysis with 5 different growth scenarios showing impact on revenue and operating income. Break-even analysis is included. Key sensitivity drivers (gross margin, NRR, CAC payback) are quantified. Multiple scenarios reveal what drives profitability.\n**Score: 5**\n\n### 3. Operational Realism (1-5)\nStrong operational detail including hiring ramps by department, 6-month sales rep ramp periods, 45-day recruiting cycles, and productivity improvements over time. The model reflects how a SaaS business actually operates rather than just financial projections.\n**Score: 5**\n\n### 4. Cash Flow Awareness (1-5)\nCash flow statement reconciles properly and working capital dynamics are modeled (AR, deferred revenue, etc.). Burn multiple and runway metrics are provided. Funding needs and timing are clearly identified with 36+ month runway.\n**Score: 4**\n\n### 5. Decision Utility (1-5)\nThe model provides clear sensitivity analysis that enables decision-making. Key metrics like LTV/CAC, burn multiple, and break-even timing help guide strategic decisions. Input-output relationships are traceable.\n**Score: 4**\n\n```json\n{\n  \"checks\": {\n    \"balance_sheet_balances\": \"PASS\",\n    \"cash_flow_reconciles\": \"PASS\", \n    \"pl_flows_to_bs\": \"FAIL\",\n    \"opening_balances_carry_forward\": \"PASS\",\n    \"no_hardcoded_numbers\": \"PASS\",\n    \"growth_rates_from_assumptions\": \"PASS\",\n    \"unit_economics_consistent\": \"PASS\",\n    \"no_circular_references\": \"PASS\",\n    \"three_statements_present\": \"PASS\",\n    \"assumptions_exist\": \"PASS\",\n    \"time_granularity_consistent\": \"PASS\",\n    \"full_time_horizon\": \"PASS\",\n    \"no_negative_revenue\": \"PASS\",\n    \"cash_not_deeply_negative\": \"PASS\",\n    \"margins_plausible\": \"PASS\",\n    \"headcount_math_works\": \"PASS\",\n    \"tax_rate_applied\": \"PASS\",\n    \"periods_labeled\": \"PASS\",\n    \"units_specified\": \"PASS\",\n    \"inputs_vs_outputs_distinguished\": \"PASS\"\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 4,\n    \"scenario_robustness\": 5,\n    \"operational_realism\": 5,\n    \"cash_flow_awareness\": 4,\n    \"decision_utility\": 4\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"PASS\",\n    \"scenario_robustness\": \"PASS\", \n    \"operational_realism\": \"PASS\",\n    \"cash_flow_awareness\": \"PASS\",\n    \"decision_utility\": \"PASS\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "balance_sheet_balances": "PASS",
+      "cash_flow_reconciles": "PASS",
+      "pl_flows_to_bs": "FAIL",
+      "opening_balances_carry_forward": "PASS",
+      "no_hardcoded_numbers": "PASS",
+      "growth_rates_from_assumptions": "PASS",
+      "unit_economics_consistent": "PASS",
+      "no_circular_references": "PASS",
+      "three_statements_present": "PASS",
+      "assumptions_exist": "PASS",
+      "time_granularity_consistent": "PASS",
+      "full_time_horizon": "PASS",
+      "no_negative_revenue": "PASS",
+      "cash_not_deeply_negative": "PASS",
+      "margins_plausible": "PASS",
+      "headcount_math_works": "PASS",
+      "tax_rate_applied": "PASS",
+      "periods_labeled": "PASS",
+      "units_specified": "PASS",
+      "inputs_vs_outputs_distinguished": "PASS"
+    },
+    "rubric_scores": {
+      "assumption_quality": 4,
+      "scenario_robustness": 5,
+      "operational_realism": 5,
+      "cash_flow_awareness": 4,
+      "decision_utility": 4
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "PASS",
+      "scenario_robustness": "PASS",
+      "operational_realism": "PASS",
+      "cash_flow_awareness": "PASS",
+      "decision_utility": "PASS"
+    }
+  },
+  "verdicts": {
+    "balance_sheet_balances": "PASS",
+    "cash_flow_reconciles": "PASS",
+    "pl_flows_to_bs": "FAIL",
+    "opening_balances_carry_forward": "PASS",
+    "no_hardcoded_numbers": "PASS",
+    "growth_rates_from_assumptions": "PASS",
+    "unit_economics_consistent": "PASS",
+    "no_circular_references": "PASS",
+    "three_statements_present": "PASS",
+    "assumptions_exist": "PASS",
+    "time_granularity_consistent": "PASS",
+    "full_time_horizon": "PASS",
+    "no_negative_revenue": "PASS",
+    "cash_not_deeply_negative": "PASS",
+    "margins_plausible": "PASS",
+    "headcount_math_works": "PASS",
+    "tax_rate_applied": "PASS",
+    "periods_labeled": "PASS",
+    "units_specified": "PASS",
+    "inputs_vs_outputs_distinguished": "PASS"
+  }
+}

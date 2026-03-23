@@ -1,0 +1,147 @@
+{
+  "model": "claude-sonnet",
+  "condition": "C",
+  "run": 2,
+  "output_id": "fm-010",
+  "timestamp": "2026-03-22T19:09:23.148524",
+  "elapsed_seconds": 20.79447603225708,
+  "raw_response": "```json\n{\n  \"checks\": {\n    \"check_balance_sheet\": {\"verdict\": \"PASS\", \"evidence\": \"Balance check: \u2713 all periods - Assets = Liabilities + Equity\"},\n    \"check_cash_flow_reconciles\": {\"verdict\": \"PASS\", \"evidence\": \"Cash reconciles to balance sheet \u2713 - ending cash on CFS matches BS\"},\n    \"check_pnl_flows_to_bs\": {\"verdict\": \"PASS\", \"evidence\": \"RE change: Y0\u2192Y1: -723. NI=-661. Diff=$62K SBC - properly reconciled\"},\n    \"check_opening_balances\": {\"verdict\": \"PASS\", \"evidence\": \"Beginning Cash Y1: 4,800 matches Y0 ending cash\"},\n    \"check_no_hardcoded\": {\"verdict\": \"FAIL\", \"evidence\": \"Revenue growth rates (50%, 45%, 40%) appear hardcoded without clear derivation from unit economics\"},\n    \"check_growth_from_assumptions\": {\"verdict\": \"FAIL\", \"evidence\": \"Growth rates stated as assumptions but not derived from NRR, churn, and new logo metrics\"},\n    \"check_unit_economics_consistent\": {\"verdict\": \"FAIL\", \"evidence\": \"ACV grows from $35K to $55K but model shows $42K-$51K actual - inconsistent with stated assumptions\"},\n    \"check_no_circular_refs\": {\"verdict\": \"PASS\", \"evidence\": \"No circular references noted or apparent in the model structure\"},\n    \"check_three_statements\": {\"verdict\": \"PASS\", \"evidence\": \"Income Statement, Balance Sheet, and Cash Flow Statement all present\"},\n    \"check_assumptions_page\": {\"verdict\": \"PASS\", \"evidence\": \"Comprehensive assumptions section with growth rates, margins, headcount plan\"},\n    \"check_time_granularity\": {\"verdict\": \"PASS\", \"evidence\": \"Consistent annual periods (Y1, Y2, Y3) throughout all statements\"},\n    \"check_full_horizon\": {\"verdict\": \"PASS\", \"evidence\": \"Full 3-year horizon covered across all statements\"},\n    \"check_no_negative_revenue\": {\"verdict\": \"PASS\", \"evidence\": \"All revenue figures positive: $4.6M, $6.7M, $9.4M\"},\n    \"check_cash_not_negative\": {\"verdict\": \"PASS\", \"evidence\": \"Cash remains positive: $4.8M \u2192 $3.0M, though declining\"},\n    \"check_margins_plausible\": {\"verdict\": \"PASS\", \"evidence\": \"Gross margins 70-74% reasonable for SaaS, op margins -15% to -1% plausible for growth stage\"},\n    \"check_headcount_math\": {\"verdict\": \"FAIL\", \"evidence\": \"83 headcount \u00d7 $148K = $12.3M but total OpEx only $7.0M in Y3\"},\n    \"check_tax_rate\": {\"verdict\": \"FAIL\", \"evidence\": \"No tax provision applied despite positive interest income\"},\n    \"check_periods_labeled\": {\"verdict\": \"PASS\", \"evidence\": \"Clear Y1, Y2, Y3 labeling throughout\"},\n    \"check_units_specified\": {\"verdict\": \"PASS\", \"evidence\": \"Units clearly specified as ($000s) in financial statements\"},\n    \"check_inputs_vs_outputs\": {\"verdict\": \"PASS\", \"evidence\": \"Assumptions section clearly separated from calculated financial statements\"}\n  },\n  \"rubric\": {\n    \"rubric_assumption_quality\": {\"score\": 2, \"verdict\": \"FAIL\", \"evidence\": \"Assumptions stated but internally inconsistent - NRR vs analyst headcount, implementation timing vs revenue recognition\"},\n    \"rubric_scenario_robustness\": {\"score\": 4, \"verdict\": \"PASS\", \"evidence\": \"Three scenarios (Bear/Base/Bull) with sensitivity analysis on key drivers like NRR and churn\"},\n    \"rubric_operational_realism\": {\"score\": 2, \"verdict\": \"FAIL\", \"evidence\": \"Multiple operational inconsistencies noted: analyst team growth vs customer expansion, implementation timing vs revenue recognition\"},\n    \"rubric_cash_flow_awareness\": {\"score\": 4, \"verdict\": \"PASS\", \"evidence\": \"Cash flow properly modeled with working capital changes, burn rate and runway calculated\"},\n    \"rubric_decision_utility\": {\"score\": 3, \"verdict\": \"PASS\", \"evidence\": \"Model provides scenario analysis and key metrics, but internal inconsistencies limit decision-making reliability\"}\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "check_balance_sheet": {
+        "verdict": "PASS",
+        "evidence": "Balance check: \u2713 all periods - Assets = Liabilities + Equity"
+      },
+      "check_cash_flow_reconciles": {
+        "verdict": "PASS",
+        "evidence": "Cash reconciles to balance sheet \u2713 - ending cash on CFS matches BS"
+      },
+      "check_pnl_flows_to_bs": {
+        "verdict": "PASS",
+        "evidence": "RE change: Y0\u2192Y1: -723. NI=-661. Diff=$62K SBC - properly reconciled"
+      },
+      "check_opening_balances": {
+        "verdict": "PASS",
+        "evidence": "Beginning Cash Y1: 4,800 matches Y0 ending cash"
+      },
+      "check_no_hardcoded": {
+        "verdict": "FAIL",
+        "evidence": "Revenue growth rates (50%, 45%, 40%) appear hardcoded without clear derivation from unit economics"
+      },
+      "check_growth_from_assumptions": {
+        "verdict": "FAIL",
+        "evidence": "Growth rates stated as assumptions but not derived from NRR, churn, and new logo metrics"
+      },
+      "check_unit_economics_consistent": {
+        "verdict": "FAIL",
+        "evidence": "ACV grows from $35K to $55K but model shows $42K-$51K actual - inconsistent with stated assumptions"
+      },
+      "check_no_circular_refs": {
+        "verdict": "PASS",
+        "evidence": "No circular references noted or apparent in the model structure"
+      },
+      "check_three_statements": {
+        "verdict": "PASS",
+        "evidence": "Income Statement, Balance Sheet, and Cash Flow Statement all present"
+      },
+      "check_assumptions_page": {
+        "verdict": "PASS",
+        "evidence": "Comprehensive assumptions section with growth rates, margins, headcount plan"
+      },
+      "check_time_granularity": {
+        "verdict": "PASS",
+        "evidence": "Consistent annual periods (Y1, Y2, Y3) throughout all statements"
+      },
+      "check_full_horizon": {
+        "verdict": "PASS",
+        "evidence": "Full 3-year horizon covered across all statements"
+      },
+      "check_no_negative_revenue": {
+        "verdict": "PASS",
+        "evidence": "All revenue figures positive: $4.6M, $6.7M, $9.4M"
+      },
+      "check_cash_not_negative": {
+        "verdict": "PASS",
+        "evidence": "Cash remains positive: $4.8M \u2192 $3.0M, though declining"
+      },
+      "check_margins_plausible": {
+        "verdict": "PASS",
+        "evidence": "Gross margins 70-74% reasonable for SaaS, op margins -15% to -1% plausible for growth stage"
+      },
+      "check_headcount_math": {
+        "verdict": "FAIL",
+        "evidence": "83 headcount \u00d7 $148K = $12.3M but total OpEx only $7.0M in Y3"
+      },
+      "check_tax_rate": {
+        "verdict": "FAIL",
+        "evidence": "No tax provision applied despite positive interest income"
+      },
+      "check_periods_labeled": {
+        "verdict": "PASS",
+        "evidence": "Clear Y1, Y2, Y3 labeling throughout"
+      },
+      "check_units_specified": {
+        "verdict": "PASS",
+        "evidence": "Units clearly specified as ($000s) in financial statements"
+      },
+      "check_inputs_vs_outputs": {
+        "verdict": "PASS",
+        "evidence": "Assumptions section clearly separated from calculated financial statements"
+      }
+    },
+    "rubric": {
+      "rubric_assumption_quality": {
+        "score": 2,
+        "verdict": "FAIL",
+        "evidence": "Assumptions stated but internally inconsistent - NRR vs analyst headcount, implementation timing vs revenue recognition"
+      },
+      "rubric_scenario_robustness": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Three scenarios (Bear/Base/Bull) with sensitivity analysis on key drivers like NRR and churn"
+      },
+      "rubric_operational_realism": {
+        "score": 2,
+        "verdict": "FAIL",
+        "evidence": "Multiple operational inconsistencies noted: analyst team growth vs customer expansion, implementation timing vs revenue recognition"
+      },
+      "rubric_cash_flow_awareness": {
+        "score": 4,
+        "verdict": "PASS",
+        "evidence": "Cash flow properly modeled with working capital changes, burn rate and runway calculated"
+      },
+      "rubric_decision_utility": {
+        "score": 3,
+        "verdict": "PASS",
+        "evidence": "Model provides scenario analysis and key metrics, but internal inconsistencies limit decision-making reliability"
+      }
+    }
+  },
+  "verdicts": {
+    "check_balance_sheet": "PASS",
+    "check_cash_flow_reconciles": "PASS",
+    "check_pnl_flows_to_bs": "PASS",
+    "check_opening_balances": "PASS",
+    "check_no_hardcoded": "FAIL",
+    "check_growth_from_assumptions": "FAIL",
+    "check_unit_economics_consistent": "FAIL",
+    "check_no_circular_refs": "PASS",
+    "check_three_statements": "PASS",
+    "check_assumptions_page": "PASS",
+    "check_time_granularity": "PASS",
+    "check_full_horizon": "PASS",
+    "check_no_negative_revenue": "PASS",
+    "check_cash_not_negative": "PASS",
+    "check_margins_plausible": "PASS",
+    "check_headcount_math": "FAIL",
+    "check_tax_rate": "FAIL",
+    "check_periods_labeled": "PASS",
+    "check_units_specified": "PASS",
+    "check_inputs_vs_outputs": "PASS",
+    "rubric_assumption_quality": "FAIL",
+    "rubric_scenario_robustness": "PASS",
+    "rubric_operational_realism": "FAIL",
+    "rubric_cash_flow_awareness": "PASS",
+    "rubric_decision_utility": "PASS"
+  }
+}

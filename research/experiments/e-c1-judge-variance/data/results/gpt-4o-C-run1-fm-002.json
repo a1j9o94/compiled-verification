@@ -1,0 +1,147 @@
+{
+  "model": "gpt-4o",
+  "condition": "C",
+  "run": 1,
+  "output_id": "fm-002",
+  "timestamp": "2026-03-22T18:53:24.673455",
+  "elapsed_seconds": 4.79512095451355,
+  "raw_response": "```json\n{\n  \"checks\": {\n    \"check_balance_sheet\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Assets = Liabilities + Equity in all periods, within tolerance.\"\n    },\n    \"check_cash_flow_reconciles\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Ending cash on CFS matches cash on balance sheet for all periods.\"\n    },\n    \"check_pnl_flows_to_bs\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Net income flows to retained earnings, adjusted for dividends/SBC.\"\n    },\n    \"check_opening_balances\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Each period's opening balances match prior period's closing balances.\"\n    },\n    \"check_no_hardcoded\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Revenue, COGS, and expenses are derived from stated assumptions.\"\n    },\n    \"check_growth_from_assumptions\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Growth rates are explicitly tied to stated assumptions and benchmarks.\"\n    },\n    \"check_unit_economics_consistent\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Revenue = price \u00d7 volume; unit economics are consistent throughout.\"\n    },\n    \"check_no_circular_refs\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"No circular references detected in the model.\"\n    },\n    \"check_three_statements\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"All three financial statements (P&L, BS, CFS) are present.\"\n    },\n    \"check_assumptions_page\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Assumptions are clearly stated and well-documented.\"\n    },\n    \"check_time_granularity\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Time granularity is consistent across the model (monthly to annual).\"\n    },\n    \"check_full_horizon\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Model covers the full 3-year horizon as required.\"\n    },\n    \"check_no_negative_revenue\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"No negative revenue observed in any period.\"\n    },\n    \"check_cash_not_negative\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Cash remains positive throughout the model without unexplained funding.\"\n    },\n    \"check_margins_plausible\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Margins are within a plausible range, improving over time as expected.\"\n    },\n    \"check_headcount_math\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Headcount math aligns with payroll expenses (salary \u00d7 headcount \u00d7 months).\"\n    },\n    \"check_tax_rate\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Tax rate is clearly labeled as pre-tax; no inconsistencies observed.\"\n    },\n    \"check_periods_labeled\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Periods are clearly labeled across all statements.\"\n    },\n    \"check_units_specified\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Units are specified consistently ($000s).\"\n    },\n    \"check_inputs_vs_outputs\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Inputs and outputs are clearly distinguished in the model.\"\n    }\n  },\n  \"rubric\": {\n    \"rubric_assumption_quality\": {\n      \"score\": 5,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Assumptions are sourced from benchmarks and comparables, internally consistent, and include sensitivity ranges.\"\n    },\n    \"rubric_scenario_robustness\": {\n      \"score\": 5,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Model includes base, bear, and bull scenarios with clear drivers of profitability and break-even analysis.\"\n    },\n    \"rubric_operational_realism\": {\n      \"score\": 5,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Operational logic is well-captured, including hiring ramps, sales cycles, and seasonal patterns.\"\n    },\n    \"rubric_cash_flow_awareness\": {\n      \"score\": 5,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Cash flow is a primary planning tool; working capital and funding needs are modeled with timing.\"\n    },\n    \"rubric_decision_utility\": {\n      \"score\": 5,\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Model functions as a decision tool with clear input-output relationships and key metrics.\"\n    }\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "check_balance_sheet": {
+        "verdict": "PASS",
+        "evidence": "Assets = Liabilities + Equity in all periods, within tolerance."
+      },
+      "check_cash_flow_reconciles": {
+        "verdict": "PASS",
+        "evidence": "Ending cash on CFS matches cash on balance sheet for all periods."
+      },
+      "check_pnl_flows_to_bs": {
+        "verdict": "PASS",
+        "evidence": "Net income flows to retained earnings, adjusted for dividends/SBC."
+      },
+      "check_opening_balances": {
+        "verdict": "PASS",
+        "evidence": "Each period's opening balances match prior period's closing balances."
+      },
+      "check_no_hardcoded": {
+        "verdict": "PASS",
+        "evidence": "Revenue, COGS, and expenses are derived from stated assumptions."
+      },
+      "check_growth_from_assumptions": {
+        "verdict": "PASS",
+        "evidence": "Growth rates are explicitly tied to stated assumptions and benchmarks."
+      },
+      "check_unit_economics_consistent": {
+        "verdict": "PASS",
+        "evidence": "Revenue = price \u00d7 volume; unit economics are consistent throughout."
+      },
+      "check_no_circular_refs": {
+        "verdict": "PASS",
+        "evidence": "No circular references detected in the model."
+      },
+      "check_three_statements": {
+        "verdict": "PASS",
+        "evidence": "All three financial statements (P&L, BS, CFS) are present."
+      },
+      "check_assumptions_page": {
+        "verdict": "PASS",
+        "evidence": "Assumptions are clearly stated and well-documented."
+      },
+      "check_time_granularity": {
+        "verdict": "PASS",
+        "evidence": "Time granularity is consistent across the model (monthly to annual)."
+      },
+      "check_full_horizon": {
+        "verdict": "PASS",
+        "evidence": "Model covers the full 3-year horizon as required."
+      },
+      "check_no_negative_revenue": {
+        "verdict": "PASS",
+        "evidence": "No negative revenue observed in any period."
+      },
+      "check_cash_not_negative": {
+        "verdict": "PASS",
+        "evidence": "Cash remains positive throughout the model without unexplained funding."
+      },
+      "check_margins_plausible": {
+        "verdict": "PASS",
+        "evidence": "Margins are within a plausible range, improving over time as expected."
+      },
+      "check_headcount_math": {
+        "verdict": "PASS",
+        "evidence": "Headcount math aligns with payroll expenses (salary \u00d7 headcount \u00d7 months)."
+      },
+      "check_tax_rate": {
+        "verdict": "PASS",
+        "evidence": "Tax rate is clearly labeled as pre-tax; no inconsistencies observed."
+      },
+      "check_periods_labeled": {
+        "verdict": "PASS",
+        "evidence": "Periods are clearly labeled across all statements."
+      },
+      "check_units_specified": {
+        "verdict": "PASS",
+        "evidence": "Units are specified consistently ($000s)."
+      },
+      "check_inputs_vs_outputs": {
+        "verdict": "PASS",
+        "evidence": "Inputs and outputs are clearly distinguished in the model."
+      }
+    },
+    "rubric": {
+      "rubric_assumption_quality": {
+        "score": 5,
+        "verdict": "PASS",
+        "evidence": "Assumptions are sourced from benchmarks and comparables, internally consistent, and include sensitivity ranges."
+      },
+      "rubric_scenario_robustness": {
+        "score": 5,
+        "verdict": "PASS",
+        "evidence": "Model includes base, bear, and bull scenarios with clear drivers of profitability and break-even analysis."
+      },
+      "rubric_operational_realism": {
+        "score": 5,
+        "verdict": "PASS",
+        "evidence": "Operational logic is well-captured, including hiring ramps, sales cycles, and seasonal patterns."
+      },
+      "rubric_cash_flow_awareness": {
+        "score": 5,
+        "verdict": "PASS",
+        "evidence": "Cash flow is a primary planning tool; working capital and funding needs are modeled with timing."
+      },
+      "rubric_decision_utility": {
+        "score": 5,
+        "verdict": "PASS",
+        "evidence": "Model functions as a decision tool with clear input-output relationships and key metrics."
+      }
+    }
+  },
+  "verdicts": {
+    "check_balance_sheet": "PASS",
+    "check_cash_flow_reconciles": "PASS",
+    "check_pnl_flows_to_bs": "PASS",
+    "check_opening_balances": "PASS",
+    "check_no_hardcoded": "PASS",
+    "check_growth_from_assumptions": "PASS",
+    "check_unit_economics_consistent": "PASS",
+    "check_no_circular_refs": "PASS",
+    "check_three_statements": "PASS",
+    "check_assumptions_page": "PASS",
+    "check_time_granularity": "PASS",
+    "check_full_horizon": "PASS",
+    "check_no_negative_revenue": "PASS",
+    "check_cash_not_negative": "PASS",
+    "check_margins_plausible": "PASS",
+    "check_headcount_math": "PASS",
+    "check_tax_rate": "PASS",
+    "check_periods_labeled": "PASS",
+    "check_units_specified": "PASS",
+    "check_inputs_vs_outputs": "PASS",
+    "rubric_assumption_quality": "PASS",
+    "rubric_scenario_robustness": "PASS",
+    "rubric_operational_realism": "PASS",
+    "rubric_cash_flow_awareness": "PASS",
+    "rubric_decision_utility": "PASS"
+  }
+}

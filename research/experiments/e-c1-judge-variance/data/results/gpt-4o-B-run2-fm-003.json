@@ -1,0 +1,64 @@
+{
+  "model": "gpt-4o",
+  "condition": "B",
+  "run": 2,
+  "output_id": "fm-003",
+  "timestamp": "2026-03-22T18:44:02.573583",
+  "elapsed_seconds": 9.405150890350342,
+  "raw_response": "### Evaluation of Financial Model: QuickLearn AI \u2014 Seed-Stage EdTech SaaS\n\n---\n\n### Automated Checks\n\n#### Structural Integrity\n1. **Balance sheet balances**  \n   - **Issue**: The balance sheet does not balance at the end of Year 1. Total Assets = $58,104,500, but Total Liabilities + Equity = $55,082,500. The discrepancy is $3,022,000.  \n   - **Reasoning**: This suggests that the accounts receivable ($3,072,000) was not properly accounted for in the equity or liabilities section.  \n   - **Verdict**: **FAIL**\n\n2. **Cash flow reconciles**  \n   - **Issue**: No cash flow statement is provided, so it is impossible to verify whether ending cash on the cash flow statement matches the cash on the balance sheet.  \n   - **Verdict**: **FAIL**\n\n3. **P&L flows to balance sheet**  \n   - **Issue**: Retained earnings on the balance sheet match net income from the income statement ($54,532,500), but the balance sheet does not balance, indicating a structural issue.  \n   - **Verdict**: **FAIL**\n\n4. **Opening balances carry forward**  \n   - **Issue**: There is no evidence of opening balances carrying forward because only Year 1 data is provided in detail. Without a cash flow statement or detailed multi-year balance sheet, this cannot be verified.  \n   - **Verdict**: **FAIL**\n\n#### Formula Integrity\n5. **No hardcoded numbers in calculation cells**  \n   - **Issue**: Revenue growth is hardcoded at 100% MoM without any underlying drivers or assumptions. Expenses are also hardcoded without detailed breakdowns or drivers.  \n   - **Verdict**: **FAIL**\n\n6. **Growth rates derive from stated assumptions**  \n   - **Issue**: The growth rate of 100% MoM is arbitrary and not tied to any stated assumptions, such as customer acquisition, pricing, or market penetration.  \n   - **Verdict**: **FAIL**\n\n7. **Unit economics are consistent**  \n   - **Issue**: Revenue is calculated as a hardcoded growth rate rather than being derived from unit economics (e.g., price \u00d7 volume). This is inconsistent with standard modeling practices.  \n   - **Verdict**: **FAIL**\n\n8. **No circular references**  \n   - **Issue**: No circular references are noted in the provided model.  \n   - **Verdict**: **PASS**\n\n#### Completeness\n9. **All three statements present**  \n   - **Issue**: No cash flow statement is provided, so the model is incomplete.  \n   - **Verdict**: **FAIL**\n\n10. **Assumptions page/section exists**  \n    - **Issue**: Assumptions are vaguely mentioned (e.g., TAM, viral growth), but there is no dedicated assumptions page or detailed breakdown.  \n    - **Verdict**: **FAIL**\n\n11. **Time granularity is consistent throughout**  \n    - **Issue**: Revenue is presented monthly for Year 1 but switches to annual for Years 2 and 3. This inconsistency makes it difficult to evaluate trends or cash flow timing.  \n    - **Verdict**: **FAIL**\n\n12. **Full time horizon covered (3 years)**  \n    - **Issue**: Projections are provided for three years, but the lack of a cash flow statement and incomplete balance sheet undermines the utility of the projections.  \n    - **Verdict**: **FAIL**\n\n#### Sanity Checks\n13. **No negative revenue**  \n    - **Issue**: Revenue is positive throughout.  \n    - **Verdict**: **PASS**\n\n14. **Cash doesn't go deeply negative without noted funding**  \n    - **Issue**: Cash is positive throughout, but this is due to unrealistic revenue projections rather than proper modeling of funding needs or working capital.  \n    - **Verdict**: **FAIL**\n\n15. **Margins are within plausible range**  \n    - **Issue**: Gross margin is 90%, and net margin is 88.8%. These are implausibly high for a seed-stage SaaS company, especially with minimal marketing spend.  \n    - **Verdict**: **FAIL**\n\n16. **Headcount math works**  \n    - **Issue**: Engineering salaries are $450,000 for three people, implying $150,000 per person annually, which is reasonable. However, the model does not account for additional headcount growth despite exponential revenue growth.  \n    - **Verdict**: **FAIL**\n\n17. **Tax rate applied or clearly labeled pre-tax**  \n    - **Issue**: Taxes are not mentioned, and net income appears to be pre-tax. This is not clearly labeled.  \n    - **Verdict**: **FAIL**\n\n#### Formatting\n18. **Periods are labeled**  \n    - **Issue**: Periods are labeled for Year 1 (monthly) and Years 2-3 (annually).  \n    - **Verdict**: **PASS**\n\n19. **Units are specified**  \n    - **Issue**: Units are not explicitly stated (e.g., $ vs. $000s). This creates ambiguity.  \n    - **Verdict**: **FAIL**\n\n20. **Inputs vs outputs are distinguished**  \n    - **Issue**: Inputs (e.g., assumptions) are not clearly separated from outputs (e.g., revenue, expenses).  \n    - **Verdict**: **FAIL**\n\n---\n\n### Judgment Rubric\n\n1. **Assumption Quality**  \n   - **Score**: 1  \n   - **Reasoning**: Assumptions are vague, unsupported, and implausible. Growth rates are arbitrary, and no sensitivity analysis is provided.  \n\n2. **Scenario Robustness**  \n   - **Score**: 1  \n   - **Reasoning**: Only a single scenario is presented, with no alternate cases or sensitivity analysis.  \n\n3. **Operational Realism**  \n   - **Score**: 1  \n   - **Reasoning**: The model lacks operational logic. Revenue growth is exponential without any drivers, and expenses are static despite massive revenue growth.  \n\n4. **Cash Flow Awareness**  \n   - **Score**: 1  \n   - **Reasoning**: No cash flow statement is provided, and funding needs are not addressed.  \n\n5. **Decision Utility**  \n   - **Score**: 1  \n   - **Reasoning**: The model is not a decision tool. Inputs are hardcoded, and outputs are not traceable to assumptions.  \n\n---\n\n### Final Evaluation\n\n```json\n{\n  \"checks\": {\n    \"structural_integrity\": {\n      \"balance_sheet_balances\": \"FAIL\",\n      \"cash_flow_reconciles\": \"FAIL\",\n      \"pnl_flows_to_balance_sheet\": \"FAIL\",\n      \"opening_balances_carry_forward\": \"FAIL\"\n    },\n    \"formula_integrity\": {\n      \"no_hardcoded_numbers\": \"FAIL\",\n      \"growth_rates_from_assumptions\": \"FAIL\",\n      \"unit_economics_consistent\": \"FAIL\",\n      \"no_circular_references\": \"PASS\"\n    },\n    \"completeness\": {\n      \"all_three_statements_present\": \"FAIL\",\n      \"assumptions_page_exists\": \"FAIL\",\n      \"time_granularity_consistent\": \"FAIL\",\n      \"full_time_horizon_covered\": \"FAIL\"\n    },\n    \"sanity_checks\": {\n      \"no_negative_revenue\": \"PASS\",\n      \"cash_not_deeply_negative\": \"FAIL\",\n      \"margins_plausible\": \"FAIL\",\n      \"headcount_math_works\": \"FAIL\",\n      \"tax_rate_applied\": \"FAIL\"\n    },\n    \"formatting\": {\n      \"periods_labeled\": \"PASS\",\n      \"units_specified\": \"FAIL\",\n      \"inputs_vs_outputs_distinguished\": \"FAIL\"\n    }\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 1,\n    \"scenario_robustness\": 1,\n    \"operational_realism\": 1,\n    \"cash_flow_awareness\": 1,\n    \"decision_utility\": 1\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"FAIL\",\n    \"scenario_robustness\": \"FAIL\",\n    \"operational_realism\": \"FAIL\",\n    \"cash_flow_awareness\": \"FAIL\",\n    \"decision_utility\": \"FAIL\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "structural_integrity": {
+        "balance_sheet_balances": "FAIL",
+        "cash_flow_reconciles": "FAIL",
+        "pnl_flows_to_balance_sheet": "FAIL",
+        "opening_balances_carry_forward": "FAIL"
+      },
+      "formula_integrity": {
+        "no_hardcoded_numbers": "FAIL",
+        "growth_rates_from_assumptions": "FAIL",
+        "unit_economics_consistent": "FAIL",
+        "no_circular_references": "PASS"
+      },
+      "completeness": {
+        "all_three_statements_present": "FAIL",
+        "assumptions_page_exists": "FAIL",
+        "time_granularity_consistent": "FAIL",
+        "full_time_horizon_covered": "FAIL"
+      },
+      "sanity_checks": {
+        "no_negative_revenue": "PASS",
+        "cash_not_deeply_negative": "FAIL",
+        "margins_plausible": "FAIL",
+        "headcount_math_works": "FAIL",
+        "tax_rate_applied": "FAIL"
+      },
+      "formatting": {
+        "periods_labeled": "PASS",
+        "units_specified": "FAIL",
+        "inputs_vs_outputs_distinguished": "FAIL"
+      }
+    },
+    "rubric_scores": {
+      "assumption_quality": 1,
+      "scenario_robustness": 1,
+      "operational_realism": 1,
+      "cash_flow_awareness": 1,
+      "decision_utility": 1
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "FAIL",
+      "scenario_robustness": "FAIL",
+      "operational_realism": "FAIL",
+      "cash_flow_awareness": "FAIL",
+      "decision_utility": "FAIL"
+    }
+  },
+  "verdicts": {
+    "structural_integrity": "FAIL",
+    "formula_integrity": "FAIL",
+    "completeness": "FAIL",
+    "sanity_checks": "FAIL",
+    "formatting": "FAIL"
+  }
+}

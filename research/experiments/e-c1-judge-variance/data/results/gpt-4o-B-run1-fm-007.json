@@ -1,0 +1,69 @@
+{
+  "model": "gpt-4o",
+  "condition": "B",
+  "run": 1,
+  "output_id": "fm-007",
+  "timestamp": "2026-03-22T18:45:35.274870",
+  "elapsed_seconds": 7.849222183227539,
+  "raw_response": "### Evaluation of HealthBridge Financial Model\n\n---\n\n#### **Automated Checks**\n\n1. **Structural Integrity**\n   - **Balance sheet balances**: The balance sheet balances in all periods (Assets = Liabilities + Equity). Tolerance of \u00b1$1 is met.  \n     **Verdict**: PASS\n   - **Cash flow reconciles**: No formal cash flow statement is provided, but the ending cash on the balance sheet is consistent with the implied cash burn. However, without a formal cash flow statement, this cannot be fully verified.  \n     **Verdict**: FAIL\n   - **P&L flows to balance sheet**: Retained earnings change matches net income adjusted for SBC. The $303K discrepancy is explained as stock-based compensation.  \n     **Verdict**: PASS\n   - **Opening balances carry forward**: The opening balances for each period match the prior period's closing balances.  \n     **Verdict**: PASS\n\n2. **Formula Integrity**\n   - **No hardcoded numbers in calculation cells**: Revenue, COGS, and expenses derive from stated assumptions (e.g., ACV, headcount costs).  \n     **Verdict**: PASS\n   - **Growth rates derive from stated assumptions**: Growth rates (e.g., new logo acquisition, NRR, churn) are explicitly tied to assumptions and sources.  \n     **Verdict**: PASS\n   - **Unit economics are consistent**: Revenue = price \u00d7 volume (ACV \u00d7 customers). This is consistent across the P&L and assumptions.  \n     **Verdict**: PASS\n   - **No circular references**: No evidence of circular references in the model.  \n     **Verdict**: PASS\n\n3. **Completeness**\n   - **All three statements present**: The cash flow statement is missing, which is a major gap.  \n     **Verdict**: FAIL\n   - **Assumptions page/section exists**: A detailed assumptions section is provided, with sources and justifications.  \n     **Verdict**: PASS\n   - **Time granularity is consistent throughout**: The model uses annual periods consistently across all statements.  \n     **Verdict**: PASS\n   - **Full time horizon covered (3 years)**: The model covers a 3-year horizon.  \n     **Verdict**: PASS\n\n4. **Sanity Checks**\n   - **No negative revenue**: Revenue is positive in all periods.  \n     **Verdict**: PASS\n   - **Cash doesn't go deeply negative without noted funding**: Cash remains positive throughout, with burn and runway explicitly noted.  \n     **Verdict**: PASS\n   - **Margins are within plausible range**: Gross margins (75%-78%) and operating margins (-10% to +4%) are plausible for a SaaS business.  \n     **Verdict**: PASS\n   - **Headcount math works**: Headcount costs align with the assumptions (headcount \u00d7 $140K fully loaded cost).  \n     **Verdict**: PASS\n   - **Tax rate applied or clearly labeled pre-tax**: The model does not explicitly include a tax line, but net income is clearly labeled as pre-tax.  \n     **Verdict**: PASS\n\n5. **Formatting**\n   - **Periods are labeled**: Periods are clearly labeled (Y1, Y2, Y3).  \n     **Verdict**: PASS\n   - **Units are specified**: Units ($000s) are clearly labeled.  \n     **Verdict**: PASS\n   - **Inputs vs outputs are distinguished**: Assumptions and outputs are clearly separated.  \n     **Verdict**: PASS\n\n---\n\n#### **Judgment Rubric**\n\n1. **Assumption Quality**\n   - The assumptions are well-documented, sourced, and reasonable (e.g., NRR, churn, ACV growth). However, sensitivity ranges are only partially included (e.g., revenue drivers).  \n     **Score**: 4  \n     **Verdict**: PASS\n\n2. **Scenario Robustness**\n   - The model includes base, bear, and bull scenarios, with clear drivers for each. Break-even analysis is included.  \n     **Score**: 5  \n     **Verdict**: PASS\n\n3. **Operational Realism**\n   - The model reflects operational dynamics (e.g., hiring ramps, sales cycles, customer success costs). However, seasonality or timing nuances are not explicitly modeled.  \n     **Score**: 4  \n     **Verdict**: PASS\n\n4. **Cash Flow Awareness**\n   - The lack of a formal cash flow statement is a major issue. While cash burn and runway are estimated, working capital and funding needs are not fully modeled.  \n     **Score**: 2  \n     **Verdict**: FAIL\n\n5. **Decision Utility**\n   - The model is a useful decision tool, with sensitivity analysis, scenario planning, and key metrics (e.g., LTV/CAC, CAC payback). However, the lack of a cash flow statement limits its utility for funding decisions.  \n     **Score**: 4  \n     **Verdict**: PASS\n\n---\n\n### Final Evaluation\n\n```json\n{\n  \"checks\": {\n    \"structural_integrity_balance_sheet\": \"PASS\",\n    \"structural_integrity_cash_flow\": \"FAIL\",\n    \"structural_integrity_pnl_to_bs\": \"PASS\",\n    \"structural_integrity_opening_balances\": \"PASS\",\n    \"formula_integrity_no_hardcodes\": \"PASS\",\n    \"formula_integrity_growth_rates\": \"PASS\",\n    \"formula_integrity_unit_economics\": \"PASS\",\n    \"formula_integrity_no_circular_references\": \"PASS\",\n    \"completeness_three_statements\": \"FAIL\",\n    \"completeness_assumptions_page\": \"PASS\",\n    \"completeness_time_granularity\": \"PASS\",\n    \"completeness_full_horizon\": \"PASS\",\n    \"sanity_checks_no_negative_revenue\": \"PASS\",\n    \"sanity_checks_cash_positive\": \"PASS\",\n    \"sanity_checks_margins_plausible\": \"PASS\",\n    \"sanity_checks_headcount_math\": \"PASS\",\n    \"sanity_checks_tax_rate\": \"PASS\",\n    \"formatting_periods_labeled\": \"PASS\",\n    \"formatting_units_specified\": \"PASS\",\n    \"formatting_inputs_vs_outputs\": \"PASS\"\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 4,\n    \"scenario_robustness\": 5,\n    \"operational_realism\": 4,\n    \"cash_flow_awareness\": 2,\n    \"decision_utility\": 4\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"PASS\",\n    \"scenario_robustness\": \"PASS\",\n    \"operational_realism\": \"PASS\",\n    \"cash_flow_awareness\": \"FAIL\",\n    \"decision_utility\": \"PASS\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "structural_integrity_balance_sheet": "PASS",
+      "structural_integrity_cash_flow": "FAIL",
+      "structural_integrity_pnl_to_bs": "PASS",
+      "structural_integrity_opening_balances": "PASS",
+      "formula_integrity_no_hardcodes": "PASS",
+      "formula_integrity_growth_rates": "PASS",
+      "formula_integrity_unit_economics": "PASS",
+      "formula_integrity_no_circular_references": "PASS",
+      "completeness_three_statements": "FAIL",
+      "completeness_assumptions_page": "PASS",
+      "completeness_time_granularity": "PASS",
+      "completeness_full_horizon": "PASS",
+      "sanity_checks_no_negative_revenue": "PASS",
+      "sanity_checks_cash_positive": "PASS",
+      "sanity_checks_margins_plausible": "PASS",
+      "sanity_checks_headcount_math": "PASS",
+      "sanity_checks_tax_rate": "PASS",
+      "formatting_periods_labeled": "PASS",
+      "formatting_units_specified": "PASS",
+      "formatting_inputs_vs_outputs": "PASS"
+    },
+    "rubric_scores": {
+      "assumption_quality": 4,
+      "scenario_robustness": 5,
+      "operational_realism": 4,
+      "cash_flow_awareness": 2,
+      "decision_utility": 4
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "PASS",
+      "scenario_robustness": "PASS",
+      "operational_realism": "PASS",
+      "cash_flow_awareness": "FAIL",
+      "decision_utility": "PASS"
+    }
+  },
+  "verdicts": {
+    "structural_integrity_balance_sheet": "PASS",
+    "structural_integrity_cash_flow": "FAIL",
+    "structural_integrity_pnl_to_bs": "PASS",
+    "structural_integrity_opening_balances": "PASS",
+    "formula_integrity_no_hardcodes": "PASS",
+    "formula_integrity_growth_rates": "PASS",
+    "formula_integrity_unit_economics": "PASS",
+    "formula_integrity_no_circular_references": "PASS",
+    "completeness_three_statements": "FAIL",
+    "completeness_assumptions_page": "PASS",
+    "completeness_time_granularity": "PASS",
+    "completeness_full_horizon": "PASS",
+    "sanity_checks_no_negative_revenue": "PASS",
+    "sanity_checks_cash_positive": "PASS",
+    "sanity_checks_margins_plausible": "PASS",
+    "sanity_checks_headcount_math": "PASS",
+    "sanity_checks_tax_rate": "PASS",
+    "formatting_periods_labeled": "PASS",
+    "formatting_units_specified": "PASS",
+    "formatting_inputs_vs_outputs": "PASS"
+  }
+}

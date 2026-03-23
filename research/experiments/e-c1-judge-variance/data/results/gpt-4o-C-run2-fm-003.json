@@ -1,0 +1,147 @@
+{
+  "model": "gpt-4o",
+  "condition": "C",
+  "run": 2,
+  "output_id": "fm-003",
+  "timestamp": "2026-03-22T18:54:20.896833",
+  "elapsed_seconds": 5.8513641357421875,
+  "raw_response": "```json\n{\n  \"checks\": {\n    \"check_balance_sheet\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Balance sheet does not balance (Assets = $58,104,500 vs Liabilities + Equity = $55,082,500).\"\n    },\n    \"check_cash_flow_reconciles\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"No cash flow statement provided, so reconciliation cannot be verified.\"\n    },\n    \"check_pnl_flows_to_bs\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Net income matches the change in retained earnings ($54,532,500).\"\n    },\n    \"check_opening_balances\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Opening balances match prior period's closing balances.\"\n    },\n    \"check_no_hardcoded\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Revenue growth is hardcoded at 100% MoM without reference to assumptions.\"\n    },\n    \"check_growth_from_assumptions\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Growth rates are arbitrary and not derived from stated assumptions.\"\n    },\n    \"check_unit_economics_consistent\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Revenue calculation (price \u00d7 volume) appears consistent with stated growth rates.\"\n    },\n    \"check_no_circular_refs\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"No circular references detected in the provided data.\"\n    },\n    \"check_three_statements\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Cash flow statement is missing.\"\n    },\n    \"check_assumptions_page\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"No detailed assumptions page or section provided.\"\n    },\n    \"check_time_granularity\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Time granularity is consistent (monthly for Year 1, annual for Years 2-3).\"\n    },\n    \"check_full_horizon\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Full 3-year horizon is covered.\"\n    },\n    \"check_no_negative_revenue\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"No negative revenue observed.\"\n    },\n    \"check_cash_not_negative\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Cash remains positive throughout the projection.\"\n    },\n    \"check_margins_plausible\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Gross margin of 90% and net margin of 88.8% are implausibly high for a SaaS business.\"\n    },\n    \"check_headcount_math\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Engineering expense implies $150,000 per engineer, which is reasonable, but no additional headcount is modeled for growth.\"\n    },\n    \"check_tax_rate\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"No tax rate is applied or mentioned, and net income is treated as post-tax.\"\n    },\n    \"check_periods_labeled\": {\n      \"verdict\": \"PASS\",\n      \"evidence\": \"Periods are clearly labeled (monthly for Year 1, annual for Years 2-3).\"\n    },\n    \"check_units_specified\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Units ($, $000s, $M) are not explicitly specified.\"\n    },\n    \"check_inputs_vs_outputs\": {\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Inputs and outputs are not clearly distinguished in the model.\"\n    }\n  },\n  \"rubric\": {\n    \"rubric_assumption_quality\": {\n      \"score\": 1,\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Assumptions are not sourced, growth rates are arbitrary, and no sensitivity analysis is included.\"\n    },\n    \"rubric_scenario_robustness\": {\n      \"score\": 1,\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Only a single scenario is provided with no alternate cases or sensitivity analysis.\"\n    },\n    \"rubric_operational_realism\": {\n      \"score\": 2,\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Operational logic is minimal. Viral growth is assumed without justification, and headcount does not scale with revenue growth.\"\n    },\n    \"rubric_cash_flow_awareness\": {\n      \"score\": 1,\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"No cash flow statement is provided, and funding needs are not addressed.\"\n    },\n    \"rubric_decision_utility\": {\n      \"score\": 1,\n      \"verdict\": \"FAIL\",\n      \"evidence\": \"Model lacks flexibility for decision-making. Changing assumptions would require significant rework.\"\n    }\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "check_balance_sheet": {
+        "verdict": "FAIL",
+        "evidence": "Balance sheet does not balance (Assets = $58,104,500 vs Liabilities + Equity = $55,082,500)."
+      },
+      "check_cash_flow_reconciles": {
+        "verdict": "FAIL",
+        "evidence": "No cash flow statement provided, so reconciliation cannot be verified."
+      },
+      "check_pnl_flows_to_bs": {
+        "verdict": "PASS",
+        "evidence": "Net income matches the change in retained earnings ($54,532,500)."
+      },
+      "check_opening_balances": {
+        "verdict": "PASS",
+        "evidence": "Opening balances match prior period's closing balances."
+      },
+      "check_no_hardcoded": {
+        "verdict": "FAIL",
+        "evidence": "Revenue growth is hardcoded at 100% MoM without reference to assumptions."
+      },
+      "check_growth_from_assumptions": {
+        "verdict": "FAIL",
+        "evidence": "Growth rates are arbitrary and not derived from stated assumptions."
+      },
+      "check_unit_economics_consistent": {
+        "verdict": "PASS",
+        "evidence": "Revenue calculation (price \u00d7 volume) appears consistent with stated growth rates."
+      },
+      "check_no_circular_refs": {
+        "verdict": "PASS",
+        "evidence": "No circular references detected in the provided data."
+      },
+      "check_three_statements": {
+        "verdict": "FAIL",
+        "evidence": "Cash flow statement is missing."
+      },
+      "check_assumptions_page": {
+        "verdict": "FAIL",
+        "evidence": "No detailed assumptions page or section provided."
+      },
+      "check_time_granularity": {
+        "verdict": "PASS",
+        "evidence": "Time granularity is consistent (monthly for Year 1, annual for Years 2-3)."
+      },
+      "check_full_horizon": {
+        "verdict": "PASS",
+        "evidence": "Full 3-year horizon is covered."
+      },
+      "check_no_negative_revenue": {
+        "verdict": "PASS",
+        "evidence": "No negative revenue observed."
+      },
+      "check_cash_not_negative": {
+        "verdict": "PASS",
+        "evidence": "Cash remains positive throughout the projection."
+      },
+      "check_margins_plausible": {
+        "verdict": "FAIL",
+        "evidence": "Gross margin of 90% and net margin of 88.8% are implausibly high for a SaaS business."
+      },
+      "check_headcount_math": {
+        "verdict": "FAIL",
+        "evidence": "Engineering expense implies $150,000 per engineer, which is reasonable, but no additional headcount is modeled for growth."
+      },
+      "check_tax_rate": {
+        "verdict": "FAIL",
+        "evidence": "No tax rate is applied or mentioned, and net income is treated as post-tax."
+      },
+      "check_periods_labeled": {
+        "verdict": "PASS",
+        "evidence": "Periods are clearly labeled (monthly for Year 1, annual for Years 2-3)."
+      },
+      "check_units_specified": {
+        "verdict": "FAIL",
+        "evidence": "Units ($, $000s, $M) are not explicitly specified."
+      },
+      "check_inputs_vs_outputs": {
+        "verdict": "FAIL",
+        "evidence": "Inputs and outputs are not clearly distinguished in the model."
+      }
+    },
+    "rubric": {
+      "rubric_assumption_quality": {
+        "score": 1,
+        "verdict": "FAIL",
+        "evidence": "Assumptions are not sourced, growth rates are arbitrary, and no sensitivity analysis is included."
+      },
+      "rubric_scenario_robustness": {
+        "score": 1,
+        "verdict": "FAIL",
+        "evidence": "Only a single scenario is provided with no alternate cases or sensitivity analysis."
+      },
+      "rubric_operational_realism": {
+        "score": 2,
+        "verdict": "FAIL",
+        "evidence": "Operational logic is minimal. Viral growth is assumed without justification, and headcount does not scale with revenue growth."
+      },
+      "rubric_cash_flow_awareness": {
+        "score": 1,
+        "verdict": "FAIL",
+        "evidence": "No cash flow statement is provided, and funding needs are not addressed."
+      },
+      "rubric_decision_utility": {
+        "score": 1,
+        "verdict": "FAIL",
+        "evidence": "Model lacks flexibility for decision-making. Changing assumptions would require significant rework."
+      }
+    }
+  },
+  "verdicts": {
+    "check_balance_sheet": "FAIL",
+    "check_cash_flow_reconciles": "FAIL",
+    "check_pnl_flows_to_bs": "PASS",
+    "check_opening_balances": "PASS",
+    "check_no_hardcoded": "FAIL",
+    "check_growth_from_assumptions": "FAIL",
+    "check_unit_economics_consistent": "PASS",
+    "check_no_circular_refs": "PASS",
+    "check_three_statements": "FAIL",
+    "check_assumptions_page": "FAIL",
+    "check_time_granularity": "PASS",
+    "check_full_horizon": "PASS",
+    "check_no_negative_revenue": "PASS",
+    "check_cash_not_negative": "PASS",
+    "check_margins_plausible": "FAIL",
+    "check_headcount_math": "FAIL",
+    "check_tax_rate": "FAIL",
+    "check_periods_labeled": "PASS",
+    "check_units_specified": "FAIL",
+    "check_inputs_vs_outputs": "FAIL",
+    "rubric_assumption_quality": "FAIL",
+    "rubric_scenario_robustness": "FAIL",
+    "rubric_operational_realism": "FAIL",
+    "rubric_cash_flow_awareness": "FAIL",
+    "rubric_decision_utility": "FAIL"
+  }
+}

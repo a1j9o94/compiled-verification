@@ -1,0 +1,69 @@
+{
+  "model": "gpt-4o",
+  "condition": "D",
+  "run": 1,
+  "output_id": "fm-004",
+  "timestamp": "2026-03-22T18:54:18.617127",
+  "elapsed_seconds": 2.6478819847106934,
+  "raw_response": "```json\n{\n  \"checks\": {\n    \"check_balance_sheet\": \"PASS\",\n    \"check_cash_flow_reconciliation\": \"FAIL\",\n    \"check_pnl_to_balance_sheet\": \"FAIL\",\n    \"check_opening_balances\": \"PASS\",\n    \"check_no_hardcoded_numbers\": \"FAIL\",\n    \"check_growth_from_assumptions\": \"FAIL\",\n    \"check_unit_economics_consistency\": \"PASS\",\n    \"check_no_circular_references\": \"PASS\",\n    \"check_three_statements\": \"PASS\",\n    \"check_assumptions_page\": \"FAIL\",\n    \"check_time_granularity\": \"PASS\",\n    \"check_full_time_horizon\": \"PASS\",\n    \"check_no_negative_revenue\": \"PASS\",\n    \"check_no_deeply_negative_cash\": \"PASS\",\n    \"check_margins_plausible\": \"FAIL\",\n    \"check_headcount_math\": \"FAIL\",\n    \"check_tax_rate_applied\": \"FAIL\",\n    \"check_period_labels\": \"PASS\",\n    \"check_units_specified\": \"PASS\",\n    \"check_inputs_vs_outputs\": \"FAIL\"\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 2,\n    \"scenario_robustness\": 1,\n    \"operational_realism\": 2,\n    \"cash_flow_awareness\": 2,\n    \"decision_utility\": 2\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"FAIL\",\n    \"scenario_robustness\": \"FAIL\",\n    \"operational_realism\": \"FAIL\",\n    \"cash_flow_awareness\": \"FAIL\",\n    \"decision_utility\": \"FAIL\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "check_balance_sheet": "PASS",
+      "check_cash_flow_reconciliation": "FAIL",
+      "check_pnl_to_balance_sheet": "FAIL",
+      "check_opening_balances": "PASS",
+      "check_no_hardcoded_numbers": "FAIL",
+      "check_growth_from_assumptions": "FAIL",
+      "check_unit_economics_consistency": "PASS",
+      "check_no_circular_references": "PASS",
+      "check_three_statements": "PASS",
+      "check_assumptions_page": "FAIL",
+      "check_time_granularity": "PASS",
+      "check_full_time_horizon": "PASS",
+      "check_no_negative_revenue": "PASS",
+      "check_no_deeply_negative_cash": "PASS",
+      "check_margins_plausible": "FAIL",
+      "check_headcount_math": "FAIL",
+      "check_tax_rate_applied": "FAIL",
+      "check_period_labels": "PASS",
+      "check_units_specified": "PASS",
+      "check_inputs_vs_outputs": "FAIL"
+    },
+    "rubric_scores": {
+      "assumption_quality": 2,
+      "scenario_robustness": 1,
+      "operational_realism": 2,
+      "cash_flow_awareness": 2,
+      "decision_utility": 2
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "FAIL",
+      "scenario_robustness": "FAIL",
+      "operational_realism": "FAIL",
+      "cash_flow_awareness": "FAIL",
+      "decision_utility": "FAIL"
+    }
+  },
+  "verdicts": {
+    "check_balance_sheet": "PASS",
+    "check_cash_flow_reconciliation": "FAIL",
+    "check_pnl_to_balance_sheet": "FAIL",
+    "check_opening_balances": "PASS",
+    "check_no_hardcoded_numbers": "FAIL",
+    "check_growth_from_assumptions": "FAIL",
+    "check_unit_economics_consistency": "PASS",
+    "check_no_circular_references": "PASS",
+    "check_three_statements": "PASS",
+    "check_assumptions_page": "FAIL",
+    "check_time_granularity": "PASS",
+    "check_full_time_horizon": "PASS",
+    "check_no_negative_revenue": "PASS",
+    "check_no_deeply_negative_cash": "PASS",
+    "check_margins_plausible": "FAIL",
+    "check_headcount_math": "FAIL",
+    "check_tax_rate_applied": "FAIL",
+    "check_period_labels": "PASS",
+    "check_units_specified": "PASS",
+    "check_inputs_vs_outputs": "FAIL"
+  }
+}

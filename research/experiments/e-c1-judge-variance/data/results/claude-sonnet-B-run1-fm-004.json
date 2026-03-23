@@ -1,0 +1,69 @@
+{
+  "model": "claude-sonnet",
+  "condition": "B",
+  "run": 1,
+  "output_id": "fm-004",
+  "timestamp": "2026-03-22T18:53:50.076490",
+  "elapsed_seconds": 37.07528114318848,
+  "raw_response": "I'll evaluate this financial model systematically against each criterion.\n\n## Automated Checks\n\n### Structural Integrity\n\n**Balance sheet balances**: \nThe model states \"Balance Check: Y0: 3,350 = 3,350 \u2713, Y1: 3,010 = 3,010 \u2713, Y2: 2,694 = 2,694 \u2713, Y3: 2,412 = 2,412 \u2713\"\nAll periods balance within tolerance.\n**PASS**\n\n**Cash flow reconciles**:\nCash flow statement shows ending cash of 2,800, 2,400, 2,000 for Y1-Y3, which matches the balance sheet cash figures exactly.\n**PASS**\n\n**P&L flows to balance sheet**:\nThe model notes a discrepancy: \"equity change Y0\u2192Y1: 2,970 - 2,490 = 480. But net income is (126). So retained earnings decreased by $480K but net loss is only $126K. There's a $354K discrepancy.\" The model attempts to explain this with dividends, but paying $354K in dividends when the company has a $126K loss is highly unusual and suggests the statements don't properly reconcile.\n**FAIL**\n\n**Opening balances carry forward**:\nBalance sheet shows Y0 ending becomes Y1 opening for all line items (e.g., cash goes from 3,200 in Y0 to 2,800 in Y1).\n**PASS**\n\n### Formula Integrity\n\n**No hardcoded numbers in calculation cells**:\nThe model states \"All expenses calculated as fixed percentages of revenue (COGS 20%, S&M 40%, R&D 30%, G&A 15%)\" and shows revenue calculation \"Revenue in Y1 = $1.8M \u00d7 1.40 = $2,520K.\" This suggests formulas derive from assumptions.\n**PASS**\n\n**Growth rates derive from stated assumptions**:\nRevenue growth is clearly stated as 40% YoY and calculations follow this assumption consistently.\n**PASS**\n\n**Unit economics are consistent**:\nThe model provides ACV ($40K) and customer count (45), but doesn't show the unit economics calculation flowing through to revenue. With 45 customers at $40K ACV, revenue should be $1.8M, which matches the starting ARR, but the growth in customers isn't modeled explicitly.\n**FAIL**\n\n**No circular references**:\nNo circular references are mentioned or apparent in the model structure.\n**PASS**\n\n### Completeness\n\n**All three statements present**:\nIncome Statement, Balance Sheet, and Cash Flow Statement are all included.\n**PASS**\n\n**Assumptions page/section exists**:\nBasic assumptions are provided (ARR, growth rate, customers, ACV) at the top of the model.\n**PASS**\n\n**Time granularity is consistent**:\nAll statements use annual periods consistently.\n**PASS**\n\n**Full time horizon covered**:\nModel covers Y1, Y2, Y3 (3 years) as required.\n**PASS**\n\n### Sanity Checks\n\n**No negative revenue**:\nAll revenue figures are positive (2,520, 3,528, 4,939).\n**PASS**\n\n**Cash doesn't go deeply negative**:\nCash remains positive throughout (2,800, 2,400, 2,000) but is declining rapidly with no funding plan mentioned.\n**PASS**\n\n**Margins are within plausible range**:\nGross margin is 80% (reasonable for SaaS). However, total expenses are 105% of revenue, creating permanent losses, which may be plausible for a growth-stage company but should be addressed.\n**PASS**\n\n**Headcount math works**:\nModel mentions \"Current team: 12 people. Plan to grow to 50 by Y3\" but doesn't show headcount calculations or how this relates to the percentage-based expenses. The connection between headcount and payroll is not demonstrated.\n**FAIL**\n\n**Tax rate applied**:\nNo taxes are shown despite the company theoretically having losses that could be carried forward. Operating income equals net income, suggesting no tax consideration.\n**FAIL**\n\n### Formatting\n\n**Periods are labeled**:\nAll periods are clearly labeled (Y0, Y1, Y2, Y3).\n**PASS**\n\n**Units are specified**:\nAll tables specify \"($000s)\" in headers.\n**PASS**\n\n**Inputs vs outputs are distinguished**:\nAssumptions are clearly separated from calculated results.\n**PASS**\n\n## Judgment Rubric\n\n### 1. Assumption Quality (1-5)\nThe assumptions are basic (ARR, growth rate, customer count, ACV) but lack sourcing or benchmarking. The model notes \"We believe our 40% growth rate is conservative given market tailwinds\" but provides no data to support this. Expense percentages (totaling 105% of revenue) are not justified. No sensitivity ranges provided.\n**Score: 2**\n\n### 2. Scenario Robustness (1-5)\nThe model explicitly states \"Sensitivity Analysis: Not included. Base case only.\" This is a clear failure to provide scenario analysis or break-even analysis.\n**Score: 1**\n\n### 3. Operational Realism (1-5)\nThe model uses flat percentage expenses rather than modeling actual operational drivers. While it mentions hiring plans (12 to 50 people), this isn't reflected in the financial calculations. The dividend payments during losses are operationally unrealistic.\n**Score: 2**\n\n### 4. Cash Flow Awareness (1-5)\nCash flow statement exists and reconciles, and the model shows declining cash balances. However, there's no discussion of funding needs despite cash declining from $3.2M to $2M over 3 years with continued losses. Working capital is modeled but simplistically.\n**Score: 2**\n\n### 5. Decision Utility (1-5)\nThe model provides basic projections but limited decision-making utility. The percentage-based expense model makes it difficult to understand the impact of operational decisions. No key metrics like CAC, LTV, or burn rate are provided.\n**Score: 2**\n\n```json\n{\n  \"checks\": {\n    \"balance_sheet_balances\": \"PASS\",\n    \"cash_flow_reconciles\": \"PASS\", \n    \"pl_flows_to_bs\": \"FAIL\",\n    \"opening_balances_carry_forward\": \"PASS\",\n    \"no_hardcoded_numbers\": \"PASS\",\n    \"growth_rates_from_assumptions\": \"PASS\",\n    \"unit_economics_consistent\": \"FAIL\",\n    \"no_circular_references\": \"PASS\",\n    \"three_statements_present\": \"PASS\",\n    \"assumptions_exist\": \"PASS\",\n    \"time_granularity_consistent\": \"PASS\",\n    \"full_time_horizon\": \"PASS\",\n    \"no_negative_revenue\": \"PASS\",\n    \"cash_not_deeply_negative\": \"PASS\",\n    \"margins_plausible\": \"PASS\",\n    \"headcount_math_works\": \"FAIL\",\n    \"tax_rate_applied\": \"FAIL\",\n    \"periods_labeled\": \"PASS\",\n    \"units_specified\": \"PASS\",\n    \"inputs_vs_outputs_distinguished\": \"PASS\"\n  },\n  \"rubric_scores\": {\n    \"assumption_quality\": 2,\n    \"scenario_robustness\": 1,\n    \"operational_realism\": 2,\n    \"cash_flow_awareness\": 2,\n    \"decision_utility\": 2\n  },\n  \"rubric_pass_fail\": {\n    \"assumption_quality\": \"FAIL\",\n    \"scenario_robustness\": \"FAIL\", \n    \"operational_realism\": \"FAIL\",\n    \"cash_flow_awareness\": \"FAIL\",\n    \"decision_utility\": \"FAIL\"\n  }\n}\n```",
+  "parsed": {
+    "checks": {
+      "balance_sheet_balances": "PASS",
+      "cash_flow_reconciles": "PASS",
+      "pl_flows_to_bs": "FAIL",
+      "opening_balances_carry_forward": "PASS",
+      "no_hardcoded_numbers": "PASS",
+      "growth_rates_from_assumptions": "PASS",
+      "unit_economics_consistent": "FAIL",
+      "no_circular_references": "PASS",
+      "three_statements_present": "PASS",
+      "assumptions_exist": "PASS",
+      "time_granularity_consistent": "PASS",
+      "full_time_horizon": "PASS",
+      "no_negative_revenue": "PASS",
+      "cash_not_deeply_negative": "PASS",
+      "margins_plausible": "PASS",
+      "headcount_math_works": "FAIL",
+      "tax_rate_applied": "FAIL",
+      "periods_labeled": "PASS",
+      "units_specified": "PASS",
+      "inputs_vs_outputs_distinguished": "PASS"
+    },
+    "rubric_scores": {
+      "assumption_quality": 2,
+      "scenario_robustness": 1,
+      "operational_realism": 2,
+      "cash_flow_awareness": 2,
+      "decision_utility": 2
+    },
+    "rubric_pass_fail": {
+      "assumption_quality": "FAIL",
+      "scenario_robustness": "FAIL",
+      "operational_realism": "FAIL",
+      "cash_flow_awareness": "FAIL",
+      "decision_utility": "FAIL"
+    }
+  },
+  "verdicts": {
+    "balance_sheet_balances": "PASS",
+    "cash_flow_reconciles": "PASS",
+    "pl_flows_to_bs": "FAIL",
+    "opening_balances_carry_forward": "PASS",
+    "no_hardcoded_numbers": "PASS",
+    "growth_rates_from_assumptions": "PASS",
+    "unit_economics_consistent": "FAIL",
+    "no_circular_references": "PASS",
+    "three_statements_present": "PASS",
+    "assumptions_exist": "PASS",
+    "time_granularity_consistent": "PASS",
+    "full_time_horizon": "PASS",
+    "no_negative_revenue": "PASS",
+    "cash_not_deeply_negative": "PASS",
+    "margins_plausible": "PASS",
+    "headcount_math_works": "FAIL",
+    "tax_rate_applied": "FAIL",
+    "periods_labeled": "PASS",
+    "units_specified": "PASS",
+    "inputs_vs_outputs_distinguished": "PASS"
+  }
+}
