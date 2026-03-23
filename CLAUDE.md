@@ -59,23 +59,37 @@ writing/                           ← Substack draft (in progress)
 - [x] Core hypothesis doc with 4 testable claims and falsification criteria
 - [x] E-C1 fully designed (see `research/experiments/e-c1-judge-variance.md`)
 - [x] program.md written (autoresearch-style experiment loop protocol)
-- [ ] E-C1 data generation (10 financial model outputs + human ground truth)
-- [ ] E-C1 experiment run (600 API calls across 4 judges × 5 conditions × 3 runs)
-- [ ] E-C1 analysis and FINDINGS.md
+- [x] E-C1 data generation (10 financial model outputs + human ground truth)
+- [x] E-C1 experiment run (300 API calls: 2 judges × 5 conditions × 3 runs × 10 outputs)
+- [x] E-C1 analysis and FINDINGS.md — **HYPOTHESIS PARTIALLY FALSIFIED**
+- [ ] E-C1 expansion: add Gemini Flash + DeepSeek V3 (need API keys)
 - [ ] E-C2 through E-C4 experiment plans
 - [ ] Substack draft
 
 ## What To Do Next
 
-**If picking up fresh: run E-C1.**
+**E-C1 is complete with 2 judges. Key findings:**
+- Hypothesis partially falsified: semantic agreement 88-94% (above 90% threshold)
+- Numeric criteria show MOST variance (70% baseline), not semantic
+- CoT prompting broke structured output extraction (GPT-4o: 5/25 verdicts)
+- Both judges highly self-consistent (>95%) — variance is systematic, not stochastic
 
-1. Read `research/experiments/e-c1-judge-variance.md` for full design
-2. Generate 10 financial model outputs in `data/outputs/` (SaaS 3-statement model, varying quality — 2 clear pass, 2 clear fail, 6 borderline)
-3. Record human expert ground truth verdicts per criterion in `data/ground-truth/` — this is the FROZEN eval. Do not touch after this point.
-4. Pull the financial-model rubric from https://github.com/a1j9o94/validation-rubrics
-5. Run all 4 judges × 5 conditions × 3 runs, save JSON to `data/results/`
-6. Analyze: inter-judge agreement by criterion type and prompting condition
-7. Write FINDINGS.md — especially the "key numbers for article" section
+**Next steps (priority order):**
+1. Add Gemini Flash + DeepSeek V3 to E-C1 (need GOOGLE_API_KEY, DEEPSEEK_API_KEY, or OPENROUTER_API_KEY)
+2. Design E-C2 (tool calling) — focus on numeric criteria specifically
+3. Pivot Substack article framing: "judges can't verify quantities" not "judges can't agree on quality"
+4. Design E-C3/E-C4 or skip to article draft depending on E-C2 results
+
+**To re-run or extend E-C1:**
+```bash
+source .venv/bin/activate
+# Re-run missing (skips existing results):
+python research/experiments/e-c1-judge-variance/scripts/run_judges.py
+# Run specific model/condition:
+python research/experiments/e-c1-judge-variance/scripts/run_judges.py --model gemini-flash --condition A
+# Analyze:
+python research/experiments/e-c1-judge-variance/scripts/analyze_results.py
+```
 
 ## The Invariants — Never Touch
 

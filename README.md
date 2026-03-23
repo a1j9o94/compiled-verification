@@ -25,8 +25,9 @@ The question this repo explores: can validation rubrics be *compiled* into deter
 | Theoretical synthesis | ✅ Complete |
 | Core hypothesis + falsification criteria | ✅ Complete |
 | E-C1 experiment design | ✅ Complete |
-| E-C1 data generation | ⬜ Not started |
-| E-C1 experiment run | ⬜ Not started |
+| E-C1 data generation (10 outputs + ground truth) | ✅ Complete |
+| E-C1 experiment run (2/4 judges, 300 calls) | ✅ Complete — hypothesis partially falsified |
+| E-C1 expansion (add 2 more judges) | ⬜ Needs API keys |
 | E-C2 through E-C4 designs | ⬜ Not started |
 | Substack draft | ⬜ Not started |
 
